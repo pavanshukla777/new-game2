@@ -1,0 +1,263 @@
+VOLUME 2 v2.0
+PART 8 OF 12
+
+TITLE:
+ROOM, PLAYER, ADMIN & MULTIPLAYER AUTHORITY
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not analyze existing code.
+
+Do not implement.
+
+Only memorize the official Rulebook.
+
+------------------------------------------------------------
+
+ROOM TYPES
+
+The game supports only:
+
+• Public Room
+
+• Private Room
+
+Permanent Rooms are always Private.
+
+Each Permanent Room has one unique 5-character Room Code.
+
+Room Codes are globally unique.
+
+Room Passwords do not exist.
+
+------------------------------------------------------------
+
+ROOM AUTHORITY
+
+The Server owns every Room.
+
+Clients never decide:
+
+• Seat ownership
+
+• Team assignment
+
+• Admin authority
+
+• Room settings
+
+Server is the single source of truth.
+
+------------------------------------------------------------
+
+SEATING
+
+6 Players
+
+Seat 1 → Team A
+
+Seat 2 → Team B
+
+Seat 3 → Team A
+
+Seat 4 → Team B
+
+Seat 5 → Team A
+
+Seat 6 → Team B
+
+Pattern:
+
+A-B-A-B-A-B
+
+4 Players
+
+Seat1 TeamA
+
+Seat2 TeamB
+
+Seat3 TeamA
+
+Seat4 TeamB
+
+Partners are NEVER adjacent.
+
+This rule is non-negotiable.
+
+------------------------------------------------------------
+
+READY SYSTEM
+
+Match cannot begin until:
+
+Every seated player presses Ready.
+
+Only then may an Admin start the Match.
+
+------------------------------------------------------------
+
+DUAL ADMIN
+
+Every Room always contains:
+
+One Team A Admin
+
+One Team B Admin
+
+Both Admins have equal authority.
+
+If one Admin leaves:
+
+Server automatically assigns Admin rights to another player from the same Team if no transfer occurred.
+
+Both Teams must always have exactly one Admin.
+
+------------------------------------------------------------
+
+ADMIN AUTHORITY
+
+Admins may:
+
+Start Match
+
+Stop Match
+
+Cancel Match
+
+Change Timer
+
+Kick Player
+
+Transfer Admin
+
+Lock Room
+
+Unlock Room
+
+Change Teams
+
+Change Seats
+
+Shuffle Seats
+
+Add AI
+
+Remove AI
+
+Server validates every Admin action.
+
+------------------------------------------------------------
+
+PLAYER JOIN
+
+Players may join only by:
+
+Room Code
+
+or
+
+Invitation.
+
+Seats are never reserved.
+
+If multiple invited players attempt the same seat:
+
+The first player successfully seated owns that seat.
+
+------------------------------------------------------------
+
+PLAYER IDENTITY
+
+Every Player has:
+
+Profile Photo
+
+Username
+
+Display Name
+
+Village Name
+
+Online Status
+
+Identity remains constant during a Match.
+
+Profile editing is prohibited during gameplay.
+
+------------------------------------------------------------
+
+SPECTATORS
+
+Spectators never participate in gameplay.
+
+They never receive playable cards.
+
+They never influence Match state.
+
+Server controls:
+
+View permission
+
+Listen permission
+
+Speak permission
+
+------------------------------------------------------------
+
+VOICE
+
+No private Team voice exists.
+
+No secret communication exists.
+
+Voice is public for everyone at the Table.
+
+Mic and Speaker are controlled only by the owning Player.
+
+------------------------------------------------------------
+
+MULTIPLAYER AUTHORITY
+
+Clients never decide:
+
+Seat ownership
+
+Admin ownership
+
+Room ownership
+
+Player order
+
+Ready status
+
+Room settings
+
+Server validates everything.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Gameplay Authority
+
++
+
+Room Authority
+
++
+
+Admin Authority
+
+always belong to the Server.
+
+Clients are presentation only.
+
+END OF PART 8
+
+WAIT FOR PART 9.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

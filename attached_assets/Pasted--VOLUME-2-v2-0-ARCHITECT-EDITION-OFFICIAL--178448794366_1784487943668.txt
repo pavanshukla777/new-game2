@@ -1,0 +1,232 @@
+==========================================================
+VOLUME 2 v2.0
+ARCHITECT EDITION
+OFFICIAL GAMEPLAY RULEBOOK
+
+PART 1 OF 12
+
+READ ONLY
+
+This document defines the ONLY official gameplay authority for this project.
+
+Every gameplay implementation must follow this Rulebook.
+
+If repository code conflicts with this Rulebook,
+the Rulebook wins.
+
+If previous documentation conflicts,
+the Rulebook wins.
+
+If AI assumptions conflict,
+the Rulebook wins.
+
+==========================================================
+PURPOSE
+==========================================================
+
+This Rulebook establishes the complete official gameplay specification for the Bundelkhandi Chhakari card game.
+
+This document becomes the highest gameplay authority for
+
+Flutter
+
+Backend
+
+Socket
+
+Database
+
+API
+
+Testing
+
+Future AI Development
+
+No gameplay may be implemented outside this Rulebook.
+
+==========================================================
+ZERO ASSUMPTION GAMEPLAY POLICY
+==========================================================
+
+Never invent gameplay.
+
+Never assume missing rules.
+
+Never borrow rules from any other card game.
+
+Never use generic trick-taking logic.
+
+Never create placeholder gameplay.
+
+Never simplify gameplay.
+
+Never infer hidden rules.
+
+Whenever evidence is missing,
+
+STOP
+
+and request clarification.
+
+==========================================================
+RULEBOOK AUTHORITY
+==========================================================
+
+Priority Order
+
+1. Official Gameplay Rulebook (this document)
+
+2. Future officially approved amendments
+
+3. Approved gameplay clarifications
+
+4. Existing implementation
+
+5. Existing documentation
+
+6. AI assumptions
+
+If any conflict exists,
+
+follow the highest authority only.
+
+==========================================================
+SERVER AUTHORITY
+==========================================================
+
+The server is always authoritative.
+
+Clients display information only.
+
+Clients never decide gameplay.
+
+Clients never calculate official results.
+
+Clients never modify match state.
+
+Clients never generate official outcomes.
+
+Every gameplay decision must originate from the server.
+
+==========================================================
+CLIENT RESPONSIBILITIES
+==========================================================
+
+The client may only
+
+Display cards
+
+Display timers
+
+Display animations
+
+Display scores
+
+Send player actions
+
+Receive server updates
+
+Render game state
+
+The client must never determine
+
+Winner
+
+Score
+
+Turn validity
+
+Trump validity
+
+Match completion
+
+Penalty
+
+==========================================================
+RULE IDENTIFICATION
+==========================================================
+
+Every official gameplay rule receives a permanent Rule ID.
+
+Format
+
+RULE-001
+
+RULE-002
+
+RULE-003
+
+...
+
+Rule IDs are permanent.
+
+Rule IDs are never reused.
+
+Rule IDs are never renumbered.
+
+Future amendments create new Rule IDs.
+
+==========================================================
+RULE CATEGORIES
+==========================================================
+
+CORE
+
+CARD
+
+PLAYER
+
+TEAM
+
+DEALER
+
+SHUFFLE
+
+DISTRIBUTION
+
+TRUMP
+
+TURN
+
+ROUND
+
+SCORE
+
+MATCH
+
+NETWORK
+
+RECOVERY
+
+VALIDATION
+
+ADMIN
+
+==========================================================
+MANDATORY IMPLEMENTATION POLICY
+==========================================================
+
+Every gameplay implementation must reference at least one Rule ID.
+
+Backend must reference Rule IDs.
+
+Flutter must reference Rule IDs.
+
+Socket events must reference Rule IDs.
+
+Database logic must reference Rule IDs.
+
+Tests must reference Rule IDs.
+
+No gameplay implementation may exist without Rulebook reference.
+
+==========================================================
+END OF PART 1
+
+WAIT FOR PART 2.
+
+DO NOT IMPLEMENT.
+
+DO NOT CONTINUE.
+
+DO NOT ASSUME GAMEPLAY.

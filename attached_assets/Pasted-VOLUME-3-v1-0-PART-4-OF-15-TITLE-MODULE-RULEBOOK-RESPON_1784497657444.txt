@@ -1,0 +1,177 @@
+VOLUME 3 v1.0
+PART 4 OF 15
+
+TITLE:
+MODULE → RULEBOOK RESPONSIBILITY MAPPING
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+Replace Rule-by-Rule mapping with Module-based mapping.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+The previous Rule-by-Rule mapping produced UNKNOWN results because many Official Rules span multiple sections and were not individually numbered inside the implementation.
+
+Beginning with Part 4, the audit changes to Module → Rulebook mapping.
+
+This follows the existing repository architecture more accurately.
+
+------------------------------------------------------------
+
+MAPPING PRINCIPLE
+
+For every existing repository module determine:
+
+Which Official Rulebook sections it is responsible for implementing.
+
+One module may implement multiple Rulebook sections.
+
+One Rulebook section may be implemented by multiple modules.
+
+This is expected.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every module record:
+
+Module Name
+
+Category
+
+Primary Responsibility
+
+Official Rulebook Sections Covered
+
+Related Repository Files
+
+Supporting Modules
+
+Current Coverage:
+
+• Complete
+
+• Partial
+
+• Unknown
+
+No explanations.
+
+No recommendations.
+
+------------------------------------------------------------
+
+RULEBOOK SECTIONS
+
+Use functional sections rather than Rule Numbers.
+
+Examples include:
+
+• Card Distribution
+
+• Player Seating
+
+• Team Formation
+
+• Primary Bid
+
+• Final Bid
+
+• Trump Selection
+
+• Turn Engine
+
+• Move Validation
+
+• Face-down Logic
+
+• Trick Resolution
+
+• Round Resolution
+
+• Scoring
+
+• Series Engine
+
+• Room Management
+
+• Admin System
+
+• Voice
+
+• Reconnection
+
+• AI Control
+
+• Socket Synchronization
+
+• UI Presentation
+
+• Validation
+
+• Match History
+
+• Error Recovery
+
+Use only sections defined by the Official Rulebook.
+
+------------------------------------------------------------
+
+MULTI-MODULE COVERAGE
+
+If several modules participate in one Rulebook section,
+
+record every participating module.
+
+Do not rank them.
+
+------------------------------------------------------------
+
+UNKNOWN STATUS
+
+If coverage cannot yet be determined,
+
+mark only:
+
+UNKNOWN
+
+Never guess.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT identify bugs.
+
+Do NOT identify conflicts.
+
+Do NOT suggest redesign.
+
+Do NOT propose migration.
+
+Do NOT implement.
+
+Only map existing modules to Rulebook responsibilities.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+This Module → Rulebook mapping becomes the official reference for every future comparison, migration and implementation task.
+
+END OF PART 4
+
+WAIT FOR PART 5.
+
+DO NOT IMPLEMENT.
+
+ONLY MAP AND MEMORIZE.

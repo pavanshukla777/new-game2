@@ -1,0 +1,173 @@
+VOLUME 3 v1.0
+PART 3 OF 15
+
+TITLE:
+RULEBOOK ↔ REPOSITORY MAPPING
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not generate implementation.
+
+Only map the Official Rulebook to the current repository.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+The repository inventory is now complete.
+
+The next objective is to determine where every Official Rule belongs inside the existing architecture.
+
+This is a mapping exercise only.
+
+No judgement.
+
+No migration.
+
+No implementation.
+
+------------------------------------------------------------
+
+MAPPING PRINCIPLE
+
+For every Official Rule (RULE-001 through RULE-030):
+
+Identify the existing repository module(s) responsible for implementing that Rule.
+
+A Rule may map to:
+
+• One Module
+
+• Multiple Modules
+
+• No Module (if currently absent)
+
+Record only factual mappings.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every Rule record:
+
+Rule Number
+
+Rule Title
+
+Responsible Module(s)
+
+Primary Files
+
+Supporting Files
+
+Current Implementation Status:
+
+• Present
+• Partial
+• Not Found
+
+Do not explain why.
+
+Do not recommend changes.
+
+------------------------------------------------------------
+
+MODULE RELATIONSHIP
+
+Examples of possible mappings include:
+
+Gameplay Engine
+
+Database
+
+Socket Layer
+
+Flutter Client
+
+Backend API
+
+AI
+
+Room Management
+
+Validation
+
+Scoring
+
+Turn Engine
+
+Move Validator
+
+Only use modules that actually exist in the repository.
+
+Never invent module names.
+
+------------------------------------------------------------
+
+MULTI-MODULE RULES
+
+Some Rules may span multiple modules.
+
+Example:
+
+A gameplay Rule may require:
+
+• Backend validation
+
+• Socket synchronization
+
+• Flutter presentation
+
+List every responsible module.
+
+Do not prioritize one over another.
+
+------------------------------------------------------------
+
+UNKNOWN STATUS
+
+If a Rule cannot yet be confidently mapped:
+
+Mark it as:
+
+UNKNOWN
+
+Continue with the next Rule.
+
+Never guess.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT identify conflicts.
+
+Do NOT classify defects.
+
+Do NOT redesign architecture.
+
+Do NOT propose migration.
+
+Do NOT suggest implementation.
+
+Only create a complete Rule-to-Repository mapping.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Every future comparison, migration, implementation and testing task must reference this mapping.
+
+This mapping becomes the official bridge between the Rulebook and the existing repository.
+
+END OF PART 3
+
+WAIT FOR PART 4.
+
+DO NOT IMPLEMENT.
+
+ONLY MAP AND MEMORIZE.

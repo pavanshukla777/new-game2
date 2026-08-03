@@ -1,0 +1,193 @@
+# VOLUME 2 – PART 5/12
+## CARD VISIBILITY & INFORMATION MODEL
+### Official Chhakri Rulebook Specification
+### Based ONLY on RULE-001 to RULE-030
+
+------------------------------------------------------------
+OBJECTIVE
+------------------------------------------------------------
+
+This document defines what information is visible to each participant during a Chhakri match.
+
+Information visibility is a core gameplay rule.
+
+No player may receive information beyond what is explicitly allowed by the Rulebook.
+
+------------------------------------------------------------
+INFORMATION PRINCIPLE
+------------------------------------------------------------
+
+Every card always exists in exactly one visibility state.
+
+Visibility is controlled only by the Server.
+
+Clients never decide card visibility.
+
+------------------------------------------------------------
+PLAYER CARD ZONES
+------------------------------------------------------------
+
+Each player owns exactly:
+
+• 2 Secret Hand Cards
+• 3 Face-down Cards
+• 3 Face-up Cards
+
+Total:
+
+8 Cards
+
+------------------------------------------------------------
+SECRET HAND CARDS
+------------------------------------------------------------
+
+Quantity:
+
+2
+
+Visible To:
+
+• Owner only
+
+Hidden From:
+
+• Opponent Team
+• Partner
+• Spectators
+• Every other player
+
+Server always knows these cards.
+
+------------------------------------------------------------
+FACE-DOWN CARDS
+------------------------------------------------------------
+
+Quantity:
+
+3
+
+Visible To:
+
+No player.
+
+Hidden From:
+
+• Owner
+• Partner
+• Opponents
+• Spectators
+
+These cards remain hidden until legally opened according to the Rulebook.
+
+Only the opened card becomes visible.
+
+Remaining Face-down cards stay hidden.
+
+------------------------------------------------------------
+FACE-UP CARDS
+------------------------------------------------------------
+
+Quantity:
+
+3
+
+Visible To:
+
+• Every player
+• Both Teams
+• Spectators
+
+These cards remain public information.
+
+Whenever a Face-up card is played, it disappears from that player's Face-up zone.
+
+No replacement card is added.
+
+------------------------------------------------------------
+PLAYED CARDS
+------------------------------------------------------------
+
+Once a card is legally played:
+
+• Every player can see it.
+• Spectators can see it.
+• Server records it.
+• The card cannot return to any player's card zone.
+
+------------------------------------------------------------
+TRICK COLLECTION
+------------------------------------------------------------
+
+After a Trick is completed:
+
+All played cards move to the Winner's Trick Collection.
+
+Cards are no longer playable.
+
+They remain part of the completed Trick history.
+
+------------------------------------------------------------
+SERVER VISIBILITY
+------------------------------------------------------------
+
+The Server always knows:
+
+• Complete Deck
+• Card Ownership
+• Secret Hand Cards
+• Face-down Cards
+• Face-up Cards
+• Played Cards
+• Trick Collections
+
+The Server is the only complete source of truth.
+
+------------------------------------------------------------
+PLAYER KNOWLEDGE
+------------------------------------------------------------
+
+Players may know only:
+
+• Their own Secret Hand Cards
+• All Face-up Cards
+• Cards already played
+• Public Bid information
+• Public Trump information
+• Public Score information
+
+Nothing else.
+
+------------------------------------------------------------
+SPECTATOR KNOWLEDGE
+------------------------------------------------------------
+
+Spectators follow the same visibility rules defined by the Rulebook.
+
+No hidden gameplay information may be revealed unless a future Rulebook version explicitly allows it.
+
+------------------------------------------------------------
+VISIBILITY LOCK
+------------------------------------------------------------
+
+No gameplay action may accidentally reveal:
+
+• Secret Hand Cards
+• Face-down Cards
+
+Information leakage is prohibited.
+
+------------------------------------------------------------
+ZERO ASSUMPTION POLICY
+------------------------------------------------------------
+
+Visibility rules are fixed.
+
+No Client, AI, Spectator or future feature may bypass these rules unless the Rulebook is officially updated.
+
+------------------------------------------------------------
+
+END OF PART 5/12
+
+WAIT FOR PART 6
+
+DO NOT IMPLEMENT YET

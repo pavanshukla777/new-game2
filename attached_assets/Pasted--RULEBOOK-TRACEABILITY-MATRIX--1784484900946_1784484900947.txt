@@ -1,0 +1,831 @@
+==========================================================
+RULEBOOK TRACEABILITY MATRIX
+==========================================================
+
+The finalized official gameplay rulebook is the highest authority.
+
+Create a Rulebook Traceability Matrix.
+
+For EVERY official gameplay rule create one entry.
+
+Each entry must contain
+
+Rule Number
+
+Rule Name
+
+Rule Description
+
+Implementation Status
+
+IMPLEMENTED
+
+PARTIALLY IMPLEMENTED
+
+INCORRECT
+
+MISSING
+
+UNKNOWN
+
+Evidence Files
+
+Evidence Classes
+
+Evidence Functions
+
+Dependencies
+
+Risk Level
+
+Developer Notes
+
+Never skip any rule.
+
+==========================================================
+GAMEPLAY ENGINE AUDIT
+==========================================================
+
+Inspect the complete gameplay engine.
+
+Verify implementation of
+
+Player Count
+
+Team Formation
+
+Dealer Selection
+
+Card Distribution
+
+Card Order
+
+Trump Selection
+
+Turn Rotation
+
+Round Progression
+
+Round Winner
+
+Hand Completion
+
+Score Calculation
+
+Penalty Rules
+
+Victory Conditions
+
+Match Completion
+
+Rematch
+
+Reconnect Behaviour
+
+Host Behaviour
+
+Disconnection Handling
+
+State Persistence
+
+Synchronization
+
+Every gameplay behaviour must map back to one official rule.
+
+==========================================================
+ZERO ASSUMPTION DETECTOR
+==========================================================
+
+Search the entire repository.
+
+Locate every place where gameplay has been assumed.
+
+Examples
+
+Temporary winner logic
+
+Placeholder score logic
+
+Generic trick-taking engine
+
+Default trump logic
+
+Hardcoded ranking
+
+Sample gameplay
+
+Test assumptions
+
+Prototype logic
+
+Temporary constants
+
+Artificial delays
+
+Magic values
+
+Document every occurrence.
+
+==========================================================
+HARDCODED GAME RULE DETECTOR
+==========================================================
+
+Locate
+
+Magic Numbers
+
+Hardcoded Scores
+
+Hardcoded Team Counts
+
+Hardcoded Player Counts
+
+Hardcoded Card Order
+
+Hardcoded Trump
+
+Hardcoded Timers
+
+Hardcoded Limits
+
+Hardcoded Win Conditions
+
+Document file location.
+
+==========================================================
+SECURITY AUDIT
+==========================================================
+
+Inspect
+
+Authentication
+
+Authorization
+
+Session Management
+
+JWT / Tokens
+
+Secrets
+
+Environment Variables
+
+Permissions
+
+Admin Access
+
+Game Ownership
+
+Room Ownership
+
+Input Validation
+
+Output Validation
+
+Replay Attack Protection
+
+Rate Limiting
+
+Duplicate Requests
+
+Malformed Payload Handling
+
+Injection Risks
+
+Information Leakage
+
+Sensitive Logging
+
+For every issue provide
+
+Severity
+
+LOW
+
+MEDIUM
+
+HIGH
+
+CRITICAL
+
+Impact
+
+Evidence
+
+Recommendation
+
+==========================================================
+CHEAT PREVENTION AUDIT
+==========================================================
+
+Inspect multiplayer integrity.
+
+Verify
+
+Server Authoritative Logic
+
+Client Trust Level
+
+Client Validation
+
+Move Validation
+
+Card Validation
+
+Turn Validation
+
+Score Validation
+
+Reconnect Validation
+
+Duplicate Packet Protection
+
+Replay Protection
+
+Out-of-order Packet Handling
+
+Race Condition Handling
+
+Cheat Possibilities
+
+Never assume protection exists.
+
+==========================================================
+PERFORMANCE AUDIT
+==========================================================
+
+Inspect
+
+Flutter Performance
+
+Backend Performance
+
+Socket Performance
+
+Database Performance
+
+Memory Usage
+
+Large Objects
+
+Heavy Widgets
+
+Blocking Operations
+
+Slow Queries
+
+Repeated Queries
+
+Repeated API Calls
+
+Repeated Socket Events
+
+Large Payloads
+
+Memory Leaks
+
+Potential Bottlenecks
+
+Estimate impact only.
+
+==========================================================
+TECHNICAL DEBT AUDIT
+==========================================================
+
+Locate
+
+TODO
+
+FIXME
+
+HACK
+
+Temporary Code
+
+Prototype Code
+
+Experimental Modules
+
+Legacy Modules
+
+Duplicate Logic
+
+Dead Code
+
+Unused Files
+
+Unused APIs
+
+Unused Widgets
+
+Unused Models
+
+Half-finished Features
+
+Mock Implementations
+
+Classify
+
+LOW
+
+MEDIUM
+
+HIGH
+
+CRITICAL
+
+==========================================================
+DEPENDENCY RISK ANALYSIS
+==========================================================
+
+Inspect all dependencies.
+
+Identify
+
+Deprecated Packages
+
+Abandoned Packages
+
+Duplicate Packages
+
+Version Conflicts
+
+Security Risks
+
+Unused Packages
+
+Transitive Risks
+
+Breaking Upgrade Risks
+
+Document only.
+
+==========================================================
+CODE QUALITY AUDIT
+==========================================================
+
+Evaluate
+
+Naming
+
+Readability
+
+Consistency
+
+Layer Separation
+
+Single Responsibility
+
+Open/Closed Principle
+
+Dependency Inversion
+
+Interface Segregation
+
+Code Duplication
+
+Maintainability
+
+Scalability
+
+Extensibility
+
+Generate a quality score for every major module.
+
+==========================================================
+PRODUCTION READINESS
+==========================================================
+
+Evaluate whether the project is production ready.
+
+Categories
+
+Architecture
+
+Flutter
+
+Backend
+
+Database
+
+Socket
+
+Security
+
+Gameplay
+
+Testing
+
+Documentation
+
+Deployment
+
+Monitoring
+
+Observability
+
+CI/CD
+
+Rate each category
+
+0–100
+
+Provide justification.
+
+==========================================================
+AI SAFE REFACTOR CONSTRAINTS
+==========================================================
+
+Generate mandatory constraints for all future AI-assisted development.
+
+Rules
+
+Never change gameplay without rulebook evidence.
+
+Never remove working code without evidence.
+
+Never replace architecture without approval.
+
+Never introduce assumptions.
+
+Never silently rename APIs.
+
+Never silently rename socket events.
+
+Never silently alter database schema.
+
+Never refactor beyond approved scope.
+
+Every future implementation must reference PROJECT_AUDIT.md.
+
+==========================================================
+CHECKPOINT
+==========================================================
+
+Verify
+
+✓ No code modified
+
+✓ No files changed
+
+✓ No assumptions made
+
+✓ Rulebook remained highest authority
+
+✓ Read-only mode preserved
+
+Continue only if all checks pass.
+
+==========================================================
+FINAL AUDIT DELIVERABLES
+==========================================================
+
+After completing the audit, generate ONE comprehensive report.
+
+File Name
+
+PROJECT_AUDIT.md
+
+This report becomes the official technical reference for all future development.
+
+Do not create additional implementation documents.
+
+==========================================================
+EXECUTIVE SUMMARY
+==========================================================
+
+Provide
+
+Project Overview
+
+Architecture Overview
+
+Technology Stack
+
+Repository Size
+
+Module Count
+
+Flutter Health
+
+Backend Health
+
+Database Health
+
+Socket Health
+
+Gameplay Health
+
+Testing Health
+
+Security Health
+
+Documentation Health
+
+Production Readiness
+
+Overall Project Score
+
+==========================================================
+REPOSITORY INVENTORY
+==========================================================
+
+Include
+
+Directory Tree
+
+File Inventory
+
+Module Inventory
+
+Technology Inventory
+
+Configuration Inventory
+
+Documentation Inventory
+
+Dependency Inventory
+
+==========================================================
+TRACEABILITY REPORT
+==========================================================
+
+Include
+
+Rulebook → Code Mapping
+
+API → Database Mapping
+
+API → Socket Mapping
+
+Socket → Gameplay Mapping
+
+Flutter → Backend Mapping
+
+Shared Models Mapping
+
+Cross-reference every relationship.
+
+==========================================================
+ARCHITECTURE HEALTH REPORT
+==========================================================
+
+Rate
+
+Flutter
+
+Backend
+
+Database
+
+Socket
+
+Architecture
+
+Testing
+
+Security
+
+Maintainability
+
+Scalability
+
+Documentation
+
+Code Quality
+
+Gameplay Engine
+
+Use
+
+0–100
+
+Provide evidence.
+
+==========================================================
+MODULE CLASSIFICATION
+==========================================================
+
+Every module must belong to one category.
+
+KEEP
+
+Working correctly.
+
+No modification required.
+
+----------------------------------------------------------
+
+MODIFIABLE
+
+Needs improvement.
+
+Safe to refactor.
+
+----------------------------------------------------------
+
+REMOVE
+
+Unused.
+
+Duplicate.
+
+Legacy.
+
+Broken.
+
+----------------------------------------------------------
+
+UNKNOWN
+
+Evidence insufficient.
+
+Requires clarification.
+
+==========================================================
+RISK MATRIX
+==========================================================
+
+For every finding provide
+
+Title
+
+Description
+
+Affected Modules
+
+Probability
+
+Impact
+
+Severity
+
+LOW
+
+MEDIUM
+
+HIGH
+
+CRITICAL
+
+Recommended Future Action
+
+==========================================================
+REFACTOR ROADMAP
+==========================================================
+
+Generate a phased roadmap.
+
+PHASE 1
+
+Critical fixes before development.
+
+PHASE 2
+
+Architecture cleanup.
+
+PHASE 3
+
+Gameplay implementation alignment.
+
+PHASE 4
+
+Performance improvements.
+
+PHASE 5
+
+Production hardening.
+
+No implementation.
+
+Planning only.
+
+==========================================================
+IMPLEMENTATION BLOCKERS
+==========================================================
+
+Identify every blocker that must be resolved before coding begins.
+
+Examples
+
+Architecture conflicts
+
+Rule conflicts
+
+Missing gameplay specification
+
+Security concerns
+
+Database inconsistencies
+
+API inconsistencies
+
+Socket inconsistencies
+
+Documentation gaps
+
+Unknown implementation
+
+==========================================================
+PROJECT READINESS MATRIX
+==========================================================
+
+Rate
+
+Development Ready
+
+Testing Ready
+
+Refactor Ready
+
+Production Ready
+
+Maintenance Ready
+
+Expansion Ready
+
+Provide reasons.
+
+==========================================================
+FINAL APPROVAL GATE
+==========================================================
+
+STOP after completing PROJECT_AUDIT.md.
+
+DO NOT
+
+Modify code.
+
+Create code.
+
+Generate features.
+
+Refactor.
+
+Optimize.
+
+Rename files.
+
+Rename APIs.
+
+Rename socket events.
+
+Alter database schema.
+
+Replace architecture.
+
+Everything stops after the report.
+
+==========================================================
+MANDATORY EXIT CONDITIONS
+==========================================================
+
+Before finishing verify
+
+✓ Entire repository inspected
+
+✓ Every file classified
+
+✓ Every module classified
+
+✓ Rulebook compared
+
+✓ Dependencies mapped
+
+✓ APIs mapped
+
+✓ Socket events mapped
+
+✓ Database mapped
+
+✓ Security inspected
+
+✓ Performance inspected
+
+✓ Technical debt inspected
+
+✓ Production readiness evaluated
+
+✓ No code modified
+
+✓ No dependencies changed
+
+✓ Read-only mode preserved
+
+==========================================================
+FINAL RESPONSE
+==========================================================
+
+Respond only with:
+
+AUDIT COMPLETE
+
+PROJECT_AUDIT.md generated.
+
+No code has been modified.
+
+Repository remains unchanged.
+
+Awaiting developer approval before entering the Refactor & Implementation phase.
+
+Do not continue automatically.

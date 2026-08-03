@@ -1,0 +1,201 @@
+VOLUME 3 v1.0
+PART 12 OF 15
+
+TITLE:
+TESTING STRATEGY & RULEBOOK COMPLIANCE
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+This document defines how the completed implementation will be tested against the Official Rulebook.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Every implemented Rulebook feature must be validated through repeatable testing.
+
+Testing confirms that gameplay behaves exactly as defined by the Official Rulebook.
+
+------------------------------------------------------------
+
+TESTING PRINCIPLE
+
+Every test must verify observable behavior.
+
+Tests shall never rely on assumptions.
+
+Tests shall never redefine gameplay rules.
+
+The Official Rulebook is always the expected result.
+
+------------------------------------------------------------
+
+TEST CATEGORIES
+
+Category 1
+
+Rulebook Tests
+
+Verify:
+
+• Card Distribution
+
+• Team Formation
+
+• Seating
+
+• Primary Bid
+
+• Final Bid
+
+• Trump
+
+• Turn Order
+
+• Legal Move Validation
+
+• Face-down Logic
+
+• Trick Resolution
+
+• Round Resolution
+
+• Scoring
+
+• Series Completion
+
+------------------------------------------------------------
+
+Category 2
+
+Multiplayer Tests
+
+Verify:
+
+• Room Creation
+
+• Player Join
+
+• Ready System
+
+• Admin Controls
+
+• Socket Synchronization
+
+• Reconnection
+
+• AI Takeover
+
+• Voice Rules
+
+------------------------------------------------------------
+
+Category 3
+
+UI Tests
+
+Verify:
+
+• Card Visibility
+
+• Match Progress Panel
+
+• Scoreboard
+
+• Notifications
+
+• Result Screens
+
+UI must accurately reflect Server State.
+
+------------------------------------------------------------
+
+Category 4
+
+Regression Tests
+
+Verify that previously working features continue functioning after every implementation phase.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every test record:
+
+Test ID
+
+Rulebook Section
+
+Related Migration ID
+
+Expected Result
+
+Actual Result
+
+Status
+
+Only use:
+
+PASS
+
+FAIL
+
+BLOCKED
+
+------------------------------------------------------------
+
+FAILURE HANDLING
+
+If a test fails:
+
+Record the failure.
+
+Associate it with the related Migration ID and Gap ID.
+
+Do not modify implementation during testing.
+
+Testing records results only.
+
+------------------------------------------------------------
+
+COMPLIANCE
+
+Rulebook Compliance is achieved only when:
+
+• Every required test passes.
+
+• No unresolved Critical Gaps remain.
+
+• No regression failures exist.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT implement fixes.
+
+Do NOT redesign architecture.
+
+Do NOT alter test expectations.
+
+Testing must always validate the Official Rulebook exactly as written.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+No feature is considered complete until it has passed all required Rulebook Compliance tests.
+
+END OF PART 12
+
+WAIT FOR PART 13.
+
+DO NOT IMPLEMENT.
+
+ONLY TEST AND DOCUMENT.

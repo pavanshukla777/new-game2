@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "gYfkWMVbDJ1za-RTaesXR"
+uri = "file://flutter_client/build-output/chhakri-release.apk"
+type = "unspecified"
+title = "Chhakri Release APK (22 MB)"

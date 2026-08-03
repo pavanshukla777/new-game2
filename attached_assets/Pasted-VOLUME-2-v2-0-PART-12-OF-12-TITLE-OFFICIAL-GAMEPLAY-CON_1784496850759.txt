@@ -1,0 +1,175 @@
+VOLUME 2 v2.0
+PART 12 OF 12
+
+TITLE:
+OFFICIAL GAMEPLAY CONSTITUTION
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not analyze existing implementation.
+
+Do not implement.
+
+Only memorize the Official Rulebook contained in Volume 2.
+
+------------------------------------------------------------
+
+AUTHORITY HIERARCHY
+
+The Official Gameplay Rulebook is the highest authority.
+
+Below it are:
+
+1. Server Implementation
+
+2. Client Implementation
+
+3. User Interface
+
+4. AI Behaviour
+
+5. Network Synchronization
+
+If any implementation conflicts with the Rulebook,
+
+the implementation must be corrected.
+
+The Rulebook never changes to match code.
+
+------------------------------------------------------------
+
+RULEBOOK STATUS
+
+RULE-001 through RULE-030 together form one complete and official Gameplay Constitution.
+
+No Rule has higher priority than another unless explicitly stated.
+
+Every Rule must be interpreted together as one unified specification.
+
+------------------------------------------------------------
+
+IMMUTABLE GAMEPLAY
+
+The following are considered immutable unless officially revised:
+
+• Card Distribution
+• Team Structure
+• Seat Order
+• Bidding System
+• Trump Rules
+• Turn Order
+• Legal Move Rules
+• Trick Resolution
+• Round Resolution
+• Score Calculation
+• Series Completion
+• Visibility Rules
+• Server Authority
+
+These rules shall remain identical across all future versions until formally amended.
+
+------------------------------------------------------------
+
+INTERPRETATION PRINCIPLE
+
+If uncertainty ever exists,
+
+the safest interpretation is the one that introduces no new gameplay behavior.
+
+No assumptions.
+
+No hidden mechanics.
+
+No unofficial shortcuts.
+
+------------------------------------------------------------
+
+EXTENSIBILITY
+
+Future additions may include:
+
+• New UI Themes
+• Statistics
+• Achievements
+• Tournament Mode
+• Clubs
+• Rankings
+• Replay System
+• Additional Languages
+• Accessibility Improvements
+
+Such additions must never modify the existing Gameplay Rules.
+
+------------------------------------------------------------
+
+DOCUMENT VERSION
+
+This Volume represents the official Gameplay Specification for Chhakri.
+
+It defines gameplay behavior only.
+
+Implementation architecture,
+
+database design,
+
+API structure,
+
+socket events,
+
+code organization,
+
+testing,
+
+deployment,
+
+and migration
+
+belong to later Volumes.
+
+------------------------------------------------------------
+
+ZERO ASSUMPTION DECLARATION
+
+Anything not explicitly defined inside the Official Rulebook shall remain undefined.
+
+Future behavior may only be added through an official Rulebook revision.
+
+No implementation may invent gameplay logic.
+
+------------------------------------------------------------
+
+FINAL PRINCIPLE
+
+Every Match,
+
+every Round,
+
+every Trick,
+
+every Card,
+
+every Bid,
+
+every Score,
+
+and every visible game event
+
+must always follow the Official Gameplay Rulebook exactly as written.
+
+This Constitution is the single source of truth for all future development.
+
+------------------------------------------------------------
+
+END OF VOLUME 2
+
+VOLUME 2 STATUS:
+
+OFFICIALLY COMPLETE.
+
+WAIT FOR VOLUME 3.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

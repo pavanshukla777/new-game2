@@ -1,0 +1,205 @@
+VOLUME 5 — PART 5
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this ENTIRE prompt before taking any action.
+
+This is ONLY Volume 5 Part 5.
+
+Volumes 5 Parts 1–4 are already complete.
+
+Do NOT modify completed functionality unless absolutely required to implement this Part.
+
+Maintain backward compatibility.
+
+--------------------------------------------------
+OBJECTIVE
+--------------------------------------------------
+
+Implement ONLY the Game Socket infrastructure and Game State synchronization layer.
+
+The Lobby is already complete.
+
+Lobby → Countdown → Game transition is already complete.
+
+This Part begins AFTER the Game screen has opened.
+
+This Part does NOT implement gameplay.
+
+--------------------------------------------------
+IMPLEMENT
+--------------------------------------------------
+
+1. Create complete /game socket lifecycle.
+
+2. Authenticate game socket.
+
+3. Join correct game room.
+
+4. Receive initial game snapshot.
+
+5. Deserialize snapshot into GameState models.
+
+6. Keep GameState synchronized with server snapshots.
+
+7. Handle reconnect safely.
+
+8. Handle temporary disconnect.
+
+9. Handle duplicate events.
+
+10. Handle duplicate socket connections.
+
+11. Handle socket reconnect after network recovery.
+
+12. Waiting/loading state until first snapshot arrives.
+
+13. Graceful connection failure UI.
+
+14. Dispose listeners correctly.
+
+15. Clean provider lifecycle.
+
+16. Preserve current GameState during reconnect until fresh snapshot replaces it.
+
+17. Ignore stale/out-of-order events using server sequence/version if available.
+
+18. Ensure reconnect is idempotent.
+
+--------------------------------------------------
+STRICTLY DO NOT IMPLEMENT
+--------------------------------------------------
+
+DO NOT implement ANY gameplay.
+
+That includes:
+
+- card dealing
+- deck generation
+- shuffle
+- trump selection
+- bidding
+- calls
+- turns
+- move validation
+- card play
+- trick resolution
+- scoring
+- winner detection
+- animations related to gameplay
+- AI
+- bots
+- timers for gameplay
+- reconnect replay logic
+- testing improvements
+- Part 6 features
+
+If gameplay code is required, STOP and report it instead of implementing it.
+
+--------------------------------------------------
+ARCHITECTURE RULES
+--------------------------------------------------
+
+Maintain existing architecture.
+
+No duplicate socket instances.
+
+No duplicate listeners.
+
+No memory leaks.
+
+No placeholder implementations.
+
+No TODO comments.
+
+No dead code.
+
+No breaking Lobby behavior.
+
+No breaking Part 4 transition.
+
+Keep Game socket completely isolated from Lobby socket.
+
+GameScreen must depend only on GameProvider/GameSocketService.
+
+--------------------------------------------------
+SUCCESS CRITERIA
+--------------------------------------------------
+
+After implementation:
+
+Player opens GameScreen.
+
+↓
+
+Game socket connects.
+
+↓
+
+Authentication succeeds.
+
+↓
+
+Correct game room joined.
+
+↓
+
+Initial snapshot received.
+
+↓
+
+GameState populated.
+
+↓
+
+Loading disappears.
+
+↓
+
+Reconnect restores latest snapshot automatically.
+
+↓
+
+No gameplay executes.
+
+--------------------------------------------------
+VERIFICATION
+--------------------------------------------------
+
+Verify:
+
+• socket lifecycle
+
+• reconnect lifecycle
+
+• provider lifecycle
+
+• listener cleanup
+
+• duplicate protection
+
+• loading states
+
+• error handling
+
+• backend tests continue passing
+
+Do NOT claim completion unless every requirement above is satisfied.
+
+--------------------------------------------------
+FINAL REPORT
+
+Include:
+
+1. Files changed
+
+2. Features implemented
+
+3. Remaining blockers (if any)
+
+4. Backend test results
+
+5. Is Volume 5 Part 5 fully complete?
+
+If any requirement cannot be completed because later Parts are required, explicitly state that instead of claiming 100% completion.

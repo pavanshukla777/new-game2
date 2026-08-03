@@ -1,0 +1,142 @@
+VOLUME 6 – PART 1
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this entire specification before taking any action.
+
+This is Part 1 of the FINAL Volume.
+
+Do NOT modify anything outside this scope.
+
+Preserve all existing architecture, APIs, authentication, lobby system, reconnect system, socket namespace, snapshots and previous functionality.
+
+OBJECTIVE
+
+Build the foundation of the Chhakri Game Engine by implementing only:
+
+• Card model
+• Deck generation
+• Game mode deck filtering
+• Secure shuffle
+• Card dealing
+• GameState storage
+• Validation
+• Backend tests
+
+IMPLEMENT
+
+1. Create a reusable Card Engine.
+
+Implement:
+- Suit enum
+- Rank enum
+- Immutable Card model
+- Standard 52-card deck generator
+
+2. Support both game modes:
+- 4 Players
+- 6 Players
+
+Deck composition MUST follow the Official Rulebook already present in the project.
+
+Do NOT invent or change any rules.
+
+3. Deck Filtering
+
+Automatically remove the correct cards for each game mode.
+
+Validate:
+- Correct deck size
+- No duplicate cards
+- No invalid cards
+- No missing cards
+
+4. Secure Shuffle
+
+Implement a server-authoritative shuffle.
+
+Requirements:
+- Random unbiased shuffle
+- Shuffle only once
+- Preserve shuffled order in GameState
+- Never reshuffle during gameplay
+
+5. Deal Cards
+
+Deal cards according to the existing Official Rulebook.
+
+Requirements:
+- Equal distribution
+- Every card dealt exactly once
+- No duplicate ownership
+- No missing cards
+
+Store every player's hand inside GameState.
+
+6. Extend GameState only where necessary.
+
+Store:
+- Selected game mode
+- Filtered deck
+- Shuffled deck
+- Player hands
+- Remaining cards (if applicable)
+
+Maintain full compatibility with reconnect snapshots.
+
+7. Validation
+
+Automatically verify:
+- Correct deck size
+- Correct removed cards
+- Equal hand sizes
+- Unique ownership
+- Zero duplicate cards
+
+Reject any invalid game state.
+
+8. Tests
+
+Add backend tests covering:
+- Deck generation
+- Deck filtering
+- Shuffle
+- Dealing
+- Card uniqueness
+- Both player modes
+
+All previous tests must continue passing.
+
+DO NOT IMPLEMENT
+
+- Turup
+- Dealer selection
+- Starting player
+- Calling/Bidding
+- Turn engine
+- Card play
+- Trick winner
+- Round winner
+- Score calculation
+- Match logic
+- New gameplay socket events
+- UI features beyond required data binding
+
+SUCCESS CRITERIA
+
+This Part is complete only if:
+- Deck generation works
+- Deck filtering is correct
+- Shuffle works
+- Dealing works
+- GameState stores data correctly
+- Validation passes
+- All previous functionality remains intact
+- All backend tests pass
+
+At completion provide:
+1. Summary of work
+2. Files modified
+3. Test results
+4. Any observations before Part 2

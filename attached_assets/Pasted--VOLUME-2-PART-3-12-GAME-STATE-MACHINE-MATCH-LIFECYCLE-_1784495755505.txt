@@ -1,0 +1,451 @@
+# VOLUME 2 – PART 3/12
+## GAME STATE MACHINE & MATCH LIFECYCLE SPECIFICATION
+### Official Gameplay Implementation Specification
+### Based ONLY on Approved Rulebook (RULE-001 to RULE-030)
+
+------------------------------------------------------------
+OBJECTIVE
+------------------------------------------------------------
+
+This document defines the complete lifecycle of a Chhakri match.
+
+It DOES NOT introduce any new gameplay rule.
+
+Every state described below is derived exclusively from the approved Rulebook.
+
+The Server is the single authoritative source for every state transition.
+
+No Client may independently change the Game State.
+
+------------------------------------------------------------
+ZERO ASSUMPTION POLICY
+------------------------------------------------------------
+
+The implementation must never invent gameplay.
+
+If any gameplay behaviour is not explicitly defined inside RULE-001 to RULE-030, implementation must stop and request a Rulebook update.
+
+No hidden logic.
+No inferred gameplay.
+No generic trick-taking assumptions.
+
+------------------------------------------------------------
+MATCH LIFECYCLE
+------------------------------------------------------------
+
+ROOM CREATED
+
+↓
+
+PLAYERS JOIN
+
+↓
+
+TEAM CONFIGURATION
+
+↓
+
+SEAT CONFIGURATION
+
+↓
+
+READY CHECK
+
+↓
+
+MATCH START
+
+↓
+
+DEALER SELECTION
+
+↓
+
+CARD DISTRIBUTION
+
+↓
+
+PRIMARY BID
+
+↓
+
+PRIMARY TRUMP
+
+↓
+
+FACE-UP REVEAL
+
+↓
+
+BIDDING
+
+↓
+
+FINAL BID
+
+↓
+
+FINAL TRUMP
+
+↓
+
+FIRST TRICK
+
+↓
+
+TRICK LOOP × 8
+
+↓
+
+ROUND RESULT
+
+↓
+
+SCORE UPDATE
+
+↓
+
+SERIES VALIDATION
+
+↓
+
+NEXT ROUND
+(If Series Continues)
+
+OR
+
+SERIES COMPLETE
+(If Series Ends)
+
+↓
+
+NEW SERIES
+
+------------------------------------------------------------
+GAME STATES
+------------------------------------------------------------
+
+STATE 01
+ROOM_CREATED
+
+Allowed:
+- Join Room
+- Configure Teams
+- Configure Seats
+- Admin Settings
+
+Forbidden:
+- Deal Cards
+- Bid
+- Play Cards
+
+------------------------------------------------------------
+
+STATE 02
+READY_CHECK
+
+Allowed:
+- Players press Ready
+
+Forbidden:
+- Match Start before every player is Ready
+
+------------------------------------------------------------
+
+STATE 03
+MATCH_STARTED
+
+Server locks:
+- Teams
+- Seats
+- Match Settings
+
+Gameplay begins.
+
+------------------------------------------------------------
+
+STATE 04
+DEALER_SELECTION
+
+Server selects Dealer Team according to the Rulebook.
+
+Dealer is authorized to distribute cards.
+
+------------------------------------------------------------
+
+STATE 05
+CARD_DISTRIBUTION
+
+Distribution order MUST remain:
+
+1. Two Secret Hand Cards
+2. Three Face-down Cards
+3. Three Face-up Cards
+
+Server validates:
+- No duplicate cards
+- Correct deck
+- Correct card count
+
+------------------------------------------------------------
+
+STATE 06
+PRIMARY_BID
+
+Only the first player receiving the Secret Hand Cards may perform:
+
+- Mandatory Bid = 5
+- Mandatory Primary Trump
+
+Server rejects every other action.
+
+------------------------------------------------------------
+
+STATE 07
+FACE_UP_REVEAL
+
+Visible:
+- All Face-up Cards
+
+Hidden:
+- Secret Hand Cards
+- Face-down Cards
+
+------------------------------------------------------------
+
+STATE 08
+BIDDING
+
+Exactly TWO rounds.
+
+Allowed:
+- Bid More
+- Pass
+
+Pass is never permanent.
+
+Allowed Bid Values:
+5
+6
+7
+8
+
+------------------------------------------------------------
+
+STATE 09
+FINAL_BID
+
+Server declares:
+
+- Bid Winner
+
+If Bid increased:
+Server requests Final Trump.
+
+Otherwise:
+Primary Trump becomes Final Trump.
+
+------------------------------------------------------------
+
+STATE 10
+FIRST_TRICK
+
+Only Bid Winner may lead.
+
+Lead player may use any legal card according to the Rulebook.
+
+------------------------------------------------------------
+
+STATE 11
+TRICK_IN_PROGRESS
+
+Server validates:
+
+- Turn Order
+- Card Ownership
+- Lead Suit Rule
+- Face-down Eligibility
+- Trump Rule
+- Illegal Move
+- Timer
+- Auto Play
+
+Server is authoritative.
+
+------------------------------------------------------------
+
+STATE 12
+TRICK_COMPLETE
+
+Server determines:
+
+- Trick Winner
+- Trick Collection
+- Next Lead
+- Live Progress Update
+
+Clients never determine Trick Winners.
+
+------------------------------------------------------------
+
+STATE 13
+ROUND_COMPLETE
+
+Occurs only after all 8 Tricks finish.
+
+Server computes:
+
+- Tricks Won
+- Bid Success / Failure
+- Round Winner
+- Score Update
+
+------------------------------------------------------------
+
+STATE 14
+SERIES_VALIDATION
+
+Server immediately checks:
+
+1. Has any Team reached +52 or higher?
+
+OR
+
+2. Has Bidder completed a Perfect 8/8 Bid?
+
+If YES:
+
+Series ends immediately.
+
+Otherwise:
+
+Next Round begins.
+
+------------------------------------------------------------
+
+STATE 15
+NEXT_ROUND
+
+Dealer Team:
+
+The Team currently behind in Match Score becomes the Dealer Team for the next Round.
+
+Distribution order repeats exactly as defined in the Rulebook.
+
+------------------------------------------------------------
+
+STATE 16
+SERIES_COMPLETE
+
+Server declares:
+
+- Series Winner
+- Final Score
+- Perfect Sweep (if applicable)
+
+Series becomes immutable.
+
+A completely new Series starts afterward.
+
+------------------------------------------------------------
+SERVER AUTHORITY
+------------------------------------------------------------
+
+Only Server may:
+
+- Deal Cards
+- Validate Cards
+- Validate Turns
+- Validate Lead Suit
+- Validate Face-down Rules
+- Validate Trump
+- Determine Trick Winner
+- Count Tricks
+- Verify Bid Success
+- Update Score
+- End Round
+- End Series
+- Start New Round
+
+Clients only send requests.
+
+Server always decides.
+
+------------------------------------------------------------
+STATE TRANSITIONS
+------------------------------------------------------------
+
+Every transition must follow:
+
+Current State Complete
+
+↓
+
+Rule Validation
+
+↓
+
+Server Validation
+
+↓
+
+Broadcast State
+
+↓
+
+Client Synchronization
+
+If validation fails:
+
+Reject Transition.
+
+Remain in Current State.
+
+------------------------------------------------------------
+CONCURRENCY RULE
+------------------------------------------------------------
+
+At any moment:
+
+- One Active Turn
+- One Active Timer
+- One Active Trick
+- One Active Server Validation
+
+Parallel gameplay actions are prohibited.
+
+------------------------------------------------------------
+FAILURE RECOVERY
+------------------------------------------------------------
+
+If interruption occurs:
+
+Server Snapshot is authoritative.
+
+Recovered Clients resume from the current Server State.
+
+Never regenerate:
+
+- Cards
+- Bids
+- Scores
+- Tricks
+
+------------------------------------------------------------
+IMPLEMENTATION CONSTRAINTS
+------------------------------------------------------------
+
+Implementation must never bypass:
+
+- State Validation
+- Rule Validation
+- Server Validation
+- Match Lifecycle
+- Zero Assumption Policy
+
+------------------------------------------------------------
+END OF PART 3/12
+
+WAIT FOR PART 4
+
+DO NOT IMPLEMENT UNTIL THE COMPLETE VOLUME 2 IS PROVIDED

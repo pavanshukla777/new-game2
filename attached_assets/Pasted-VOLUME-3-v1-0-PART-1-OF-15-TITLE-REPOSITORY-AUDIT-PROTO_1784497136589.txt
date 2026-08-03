@@ -1,0 +1,145 @@
+VOLUME 3 v1.0
+PART 1 OF 15
+
+TITLE:
+REPOSITORY AUDIT PROTOCOL
+
+READ ONLY.
+
+Do not modify any code.
+
+Do not refactor.
+
+Do not generate implementation.
+
+Only inspect and understand the existing repository using the Official Rulebook as the reference.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Volume 2 defined the Official Gameplay Rulebook.
+
+Volume 3 begins the architecture audit.
+
+The purpose is to understand how the current repository is organized before any implementation or migration begins.
+
+No gameplay decisions are to be made during this phase.
+
+------------------------------------------------------------
+
+AUDIT PRINCIPLE
+
+Treat the current repository as Existing Implementation.
+
+Treat the Official Rulebook as the Target Specification.
+
+Do not assume either one is correct until comparison is complete.
+
+The goal is documentation, not correction.
+
+------------------------------------------------------------
+
+REPOSITORY SCOPE
+
+Inspect every major module including:
+
+• Backend
+• Flutter Client
+• Database
+• Socket Layer
+• AI Logic
+• Shared Models
+• APIs
+• Configuration
+• Assets
+• Build System
+
+Nothing should be skipped.
+
+------------------------------------------------------------
+
+AUDIT METHOD
+
+For every module determine only:
+
+• Purpose
+• Responsibility
+• Dependencies
+• Entry Points
+• Exit Points
+• Related Gameplay Rules
+
+Do NOT recommend changes.
+
+Do NOT classify issues yet.
+
+------------------------------------------------------------
+
+DOCUMENTATION FORMAT
+
+For every module prepare:
+
+Module Name
+
+Purpose
+
+Primary Files
+
+Dependent Files
+
+Related Rulebook Sections
+
+Current Responsibility
+
+Nothing more.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+During Part 1:
+
+Do NOT report bugs.
+
+Do NOT report conflicts.
+
+Do NOT redesign architecture.
+
+Do NOT rename files.
+
+Do NOT suggest migration.
+
+Do NOT suggest implementation.
+
+Only understand and document.
+
+------------------------------------------------------------
+
+OUTPUT EXPECTATION
+
+After auditing,
+
+the repository should be fully mapped so every future implementation can reference the correct module without guessing.
+
+This audit creates the foundation for all remaining parts of Volume 3.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Repository inspection must remain completely objective.
+
+Observation first.
+
+Comparison later.
+
+Implementation last.
+
+END OF PART 1
+
+WAIT FOR PART 2.
+
+DO NOT IMPLEMENT.
+
+ONLY AUDIT AND MEMORIZE.

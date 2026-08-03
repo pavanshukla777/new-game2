@@ -1,0 +1,188 @@
+VOLUME 5 — PART 6
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this ENTIRE prompt before taking any action.
+
+This is ONLY Volume 5 Part 6.
+
+Volumes 5 Parts 1–5 are already complete.
+
+DO NOT implement new gameplay.
+
+DO NOT add new features.
+
+DO NOT modify architecture unless required to fix verified defects.
+
+This Part is strictly for validation, hardening, testing, and production readiness.
+
+--------------------------------------------------
+OBJECTIVE
+--------------------------------------------------
+
+Verify that all functionality implemented in Volume 5 Parts 1–5 is stable, production-ready, and internally consistent.
+
+Only fix genuine defects discovered during validation.
+
+--------------------------------------------------
+VALIDATION CHECKLIST
+--------------------------------------------------
+
+Perform a complete audit of:
+
+1. Authentication flow
+
+2. Lobby lifecycle
+
+3. Lobby socket lifecycle
+
+4. Game transition
+
+5. Game socket lifecycle
+
+6. Reconnect behavior
+
+7. Provider lifecycle
+
+8. Listener registration
+
+9. Listener disposal
+
+10. Duplicate socket prevention
+
+11. Duplicate navigation prevention
+
+12. Loading states
+
+13. Error handling
+
+14. Memory leak inspection
+
+15. Dead code inspection
+
+16. Unused imports
+
+17. Lint warnings
+
+18. TypeScript consistency
+
+19. Model consistency
+
+20. Null safety
+
+21. Exception handling
+
+22. Resource cleanup
+
+23. State synchronization
+
+24. Socket lifecycle correctness
+
+--------------------------------------------------
+TESTING
+--------------------------------------------------
+
+Run every backend test.
+
+If Flutter SDK is available:
+
+Run:
+
+flutter analyze
+
+flutter test
+
+If Flutter SDK is NOT available:
+
+DO NOT claim they were executed.
+
+Instead clearly state:
+
+"Flutter SDK unavailable on Replit. Static source inspection performed instead."
+
+--------------------------------------------------
+STRICTLY DO NOT IMPLEMENT
+--------------------------------------------------
+
+DO NOT implement:
+
+- gameplay
+
+- dealing
+
+- bidding
+
+- trump
+
+- turns
+
+- scoring
+
+- animations
+
+- bots
+
+- AI
+
+- timers
+
+- new sockets
+
+- protocol changes
+
+- Part 7 work
+
+If new functionality appears necessary,
+
+STOP
+
+and report it instead of implementing it.
+
+--------------------------------------------------
+QUALITY REQUIREMENTS
+--------------------------------------------------
+
+No TODO comments.
+
+No placeholder code.
+
+No dead code.
+
+No duplicate listeners.
+
+No duplicate socket instances.
+
+No unused imports.
+
+No unnecessary rebuilds.
+
+No architecture changes unless fixing verified defects.
+
+--------------------------------------------------
+FINAL AUDIT REPORT
+--------------------------------------------------
+
+Provide:
+
+1. Files changed
+
+2. Bugs discovered
+
+3. Bugs fixed
+
+4. Remaining known limitations
+
+5. Backend test results
+
+6. Flutter analyze result
+(If unavailable, explicitly say Flutter SDK unavailable.)
+
+7. Flutter test result
+(If unavailable, explicitly say Flutter SDK unavailable.)
+
+8. Production readiness assessment
+
+9. Is Volume 5 genuinely 100% complete?
+
+Do NOT claim 100% completion unless every verification above has been completed honestly.

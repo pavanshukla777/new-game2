@@ -1,0 +1,153 @@
+VOLUME 6 – PART 2
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this ENTIRE specification before making ANY changes.
+
+This project follows STRICT ZERO ASSUMPTIONS.
+
+The Official Chhakri Rulebook is the ONLY source of truth.
+
+Never invent rules.
+
+Never import logic from Poker, Call Break, Spades, Bridge, Hearts, Rummy or any other card game.
+
+If any existing code conflicts with the Rulebook:
+DO NOT continue silently.
+Report the conflict before implementing.
+
+------------------------------------------------
+
+OBJECTIVE
+
+Implement ONLY the official game initialization.
+
+This Part begins the actual gameplay but ONLY until the first legal turn becomes ready.
+
+------------------------------------------------
+
+IMPLEMENT
+
+1. Verify Existing Foundation
+
+Audit the current game engine created in Part 1.
+
+Verify:
+- Deck generation
+- Deck filtering
+- Shuffle
+- Deal
+- GameState
+- Snapshots
+
+Do not modify unless a verified defect exists.
+
+------------------------------------------------
+
+2. Remove Unsupported Logic
+
+Search the entire project for generic card-game assumptions.
+
+Examples:
+- card points
+- DECK_TOTAL_POINTS
+- scoreMap
+- generic trick scoring
+- hardcoded bid values
+- legacy game rules
+
+If they are NOT defined in the Official Rulebook:
+
+Do NOT use them.
+
+Remove or isolate unused legacy logic.
+
+Report every removal.
+
+------------------------------------------------
+
+3. Initialize Official Chhakri Round
+
+Implement ONLY the official initial round state.
+
+Include only:
+
+- Dealer determination (according to Rulebook)
+- Initial game state
+- Player order
+- Team order
+- Ready state transition
+- Game start snapshot
+
+------------------------------------------------
+
+4. Server Authority
+
+All initialization must happen only on the server.
+
+Clients must never determine:
+- dealer
+- player order
+- game state
+
+------------------------------------------------
+
+5. Validation
+
+Validate:
+
+- Correct player order
+- Correct team mapping
+- Correct dealer
+- Valid initial state
+- Snapshot integrity
+
+Reject invalid initialization.
+
+------------------------------------------------
+
+6. Tests
+
+Add backend tests for:
+
+- 4-player initialization
+- 6-player initialization
+- Invalid initialization
+- Snapshot creation
+- Dealer selection
+
+All previous tests must continue passing.
+
+------------------------------------------------
+
+DO NOT IMPLEMENT
+
+- Turup
+- Calling
+- Bidding
+- Card play
+- Turn engine
+- Winner logic
+- Score
+- Match logic
+- UI additions beyond required binding
+
+------------------------------------------------
+
+SUCCESS CRITERIA
+
+Complete only if:
+
+- Initialization follows the Official Rulebook exactly.
+- Zero unsupported assumptions remain.
+- Legacy generic card-game logic is removed or isolated.
+- Previous tests pass.
+- New tests pass.
+
+At completion provide:
+
+1. Files modified
+2. Tests executed
+3. Unsupported assumptions found (if any)
+4. Confirmation that ZERO ASSUMPTIONS remains enforced before Part 3.

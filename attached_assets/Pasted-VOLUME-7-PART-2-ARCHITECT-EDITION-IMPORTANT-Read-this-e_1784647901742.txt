@@ -1,0 +1,98 @@
+VOLUME 7 — PART 2
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this entire specification before making any changes.
+
+This is Volume 7 Part 2 only.
+
+Do NOT repeat work already completed in Part 1.
+
+────────────────────────
+OBJECTIVE
+────────────────────────
+
+Prepare the application for production by auditing performance, stability and real multiplayer behavior.
+
+Flutter ↔ Backend integration has already been audited.
+
+Do NOT repeat that audit unless a new issue is discovered while working on this scope.
+
+────────────────────────
+SCOPE
+────────────────────────
+
+Audit and improve only:
+
+1. Memory leaks
+   - timers
+   - streams
+   - socket listeners
+   - controllers
+   - subscriptions
+   - dispose() correctness
+
+2. Performance
+   - unnecessary rebuilds
+   - duplicated state updates
+   - excessive setState()
+   - provider efficiency
+   - widget rebuild optimization
+
+3. Network resilience
+   - packet delay
+   - packet loss
+   - rapid reconnect
+   - duplicate events
+   - out-of-order events
+
+4. Multiplayer stability
+   - long-running matches
+   - repeated rounds
+   - repeated play-again cycles
+   - multiple reconnects
+   - background / foreground transitions
+
+5. Flutter production issues
+   - crashes
+   - exceptions
+   - null safety
+   - mounted checks
+   - context-after-dispose
+   - race conditions
+
+6. Verify no memory or resource accumulation occurs after multiple matches.
+
+────────────────────────
+DO NOT IMPLEMENT
+────────────────────────
+
+Do NOT modify:
+
+• Game Engine
+• Game Rules
+• Backend APIs
+• Socket Protocol
+• Database
+• Authentication
+• Completed Integration Features
+
+Only fix VERIFIED production issues discovered during audit.
+
+────────────────────────
+REQUIRED PROCESS
+────────────────────────
+
+1. Audit first.
+2. Read actual source files.
+3. Identify only real issues.
+4. Fix only verified problems.
+5. Avoid unnecessary refactoring.
+6. Preserve existing architecture.
+7. Run all available tests.
+8. Produce a concise implementation report.
+
+If no issues exist, explicitly state that the audited areas are production-ready.
+
+END OF VOLUME 7 PART 2

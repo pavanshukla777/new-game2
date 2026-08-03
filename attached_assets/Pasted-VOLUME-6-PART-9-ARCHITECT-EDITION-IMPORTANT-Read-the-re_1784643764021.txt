@@ -1,0 +1,139 @@
+VOLUME 6 – PART 9
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read the repository completely before writing any code.
+
+Do NOT assume anything.
+
+Audit the existing implementation first.
+
+Implement ONLY the scope below.
+
+If any responsibility is already fully implemented, DO NOT rewrite it.
+Instead:
+1. Verify correctness.
+2. Add missing tests if necessary.
+3. Fix only genuine bugs.
+
+Do NOT refactor unrelated code.
+
+--------------------------------------------------
+SCOPE
+--------------------------------------------------
+
+Complete the Round Scoring and Match Completion engine.
+
+Implement only the missing functionality required after the final trick of a round.
+
+Required responsibilities:
+
+1. Detect round completion after all tricks are finished.
+
+2. Calculate round winner according to the official Chhakri rules.
+
+3. Calculate team score.
+
+4. Update cumulative match score.
+
+5. Detect match completion.
+
+6. Determine winning team.
+
+7. Persist final game state.
+
+8. Emit the correct final game snapshot.
+
+9. Support reconnect after match completion.
+
+10. Ensure all clients receive the same final result.
+
+--------------------------------------------------
+DO NOT IMPLEMENT
+--------------------------------------------------
+
+Do NOT modify:
+
+• Authentication
+• Lobby
+• Room management
+• Socket infrastructure
+• Card dealing
+• Trump selection
+• Bidding
+• Card validation
+• Turn engine
+• Trick engine
+• Reconnect infrastructure
+• Flutter UI
+• Navigation
+
+No UI redesign.
+
+No protocol changes.
+
+No API redesign.
+
+--------------------------------------------------
+VALIDATION
+--------------------------------------------------
+
+Before changing code:
+
+Audit every responsibility.
+
+If already implemented:
+
+Do not rewrite it.
+
+Only add missing tests.
+
+If incomplete:
+
+Implement only the missing logic.
+
+--------------------------------------------------
+TESTING
+--------------------------------------------------
+
+Create comprehensive tests covering:
+
+• Round completion
+• Score calculation
+• Team scoring
+• Match winner
+• Match completion
+• Final snapshot
+• Reconnect after completion
+• Invalid scoring scenarios
+• Edge cases
+• Regression tests
+
+Run the complete backend test suite.
+
+All tests must pass.
+
+--------------------------------------------------
+OUTPUT
+--------------------------------------------------
+
+Provide:
+
+1. Audit summary.
+
+2. Files modified.
+
+3. Files added.
+
+4. Test coverage summary.
+
+5. Total test count.
+
+6. Final implementation status.
+
+If everything was already implemented, clearly state:
+
+"Implementation already complete. Only missing test coverage has been added."
+
+Otherwise clearly describe only the newly implemented responsibilities.

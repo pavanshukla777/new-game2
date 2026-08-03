@@ -1,0 +1,133 @@
+VOLUME 6 – PART 10
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read the repository completely before writing any code.
+
+Do NOT assume anything.
+
+Audit the existing implementation first.
+
+Implement ONLY the scope below.
+
+If any responsibility already exists:
+
+• Do NOT rewrite it.
+• Verify correctness.
+• Add only missing test coverage.
+• Fix only genuine bugs discovered during verification.
+
+Do not refactor unrelated code.
+
+--------------------------------------------------
+SCOPE
+--------------------------------------------------
+
+Final hardening of the complete Game Engine.
+
+Responsibilities:
+
+1. Audit the complete game engine.
+
+2. Verify all game phases:
+   - dealing
+   - primary trump
+   - bidding
+   - final trump
+   - playing
+   - round end
+   - match end
+
+3. Verify every state transition.
+
+4. Verify every socket event.
+
+5. Verify reconnect behavior in every phase.
+
+6. Verify snapshot consistency.
+
+7. Verify serialization/deserialization.
+
+8. Verify edge cases.
+
+9. Verify invalid actions cannot corrupt game state.
+
+10. Verify complete multiplayer synchronization.
+
+11. Remove dead code only if completely unused.
+
+12. Add any missing regression tests.
+
+--------------------------------------------------
+DO NOT IMPLEMENT
+--------------------------------------------------
+
+Do NOT redesign architecture.
+
+Do NOT change APIs.
+
+Do NOT change socket protocol.
+
+Do NOT change Flutter UI.
+
+Do NOT add new gameplay rules.
+
+Do NOT refactor working code.
+
+--------------------------------------------------
+VALIDATION
+--------------------------------------------------
+
+Audit first.
+
+If implementation already exists:
+
+DO NOT rewrite it.
+
+Only strengthen tests.
+
+Only fix genuine bugs.
+
+--------------------------------------------------
+TESTING
+--------------------------------------------------
+
+Run the complete backend test suite.
+
+Cover:
+
+• all game phases
+• reconnect
+• serialization
+• synchronization
+• invalid actions
+• edge cases
+• regression
+• stress scenarios
+
+All tests must pass.
+
+--------------------------------------------------
+OUTPUT
+--------------------------------------------------
+
+Provide:
+
+1. Audit summary.
+
+2. Files modified.
+
+3. Files added.
+
+4. Test coverage summary.
+
+5. Total test count.
+
+6. Final implementation status.
+
+If everything already existed, clearly state:
+
+"Implementation already complete. Only missing test coverage has been added."
+
+Otherwise describe only newly implemented responsibilities.

@@ -1,0 +1,151 @@
+# VOLUME 5 — PART 1
+## Multiplayer UI Integration Foundation
+
+IMPORTANT
+
+Read this ENTIRE prompt before taking ANY action.
+
+Do NOT refactor, regenerate, or rewrite existing code.
+
+Preserve the current architecture, APIs, database schema, socket contracts, game engine, and business logic.
+
+This is an integration task ONLY.
+
+--------------------------------------------------
+
+OBJECTIVE
+
+The backend, Socket.IO server, PostgreSQL database, authentication system, game engine, and API are already complete.
+
+Your task is ONLY to integrate the Flutter client with the existing backend.
+
+Do NOT redesign the project.
+
+Do NOT change any completed backend implementation.
+
+--------------------------------------------------
+
+ALLOWED FILES
+
+You may modify ONLY:
+
+- Flutter presentation layer
+- Flutter networking layer
+- API client
+- Socket client
+- Authentication UI
+- Lobby UI
+- Room UI
+- Flutter state management
+- ViewModels / Providers / Controllers
+
+Create helper files ONLY if absolutely necessary.
+
+--------------------------------------------------
+
+FORBIDDEN
+
+Do NOT modify:
+
+- Game Engine
+- Rule Engine
+- Card Engine
+- Scoring Engine
+- Backend APIs
+- Database schema
+- Socket server
+- Shared libraries
+- Existing tests
+- Core architecture
+
+NO refactoring.
+
+NO architecture changes.
+
+NO business logic changes.
+
+--------------------------------------------------
+
+IMPLEMENTATION
+
+Connect Flutter to the REAL backend.
+
+Implement the following using existing APIs only:
+
+1. Login
+2. Session persistence (if supported)
+3. Lobby loading
+4. Room list loading
+5. Create Room
+6. Join Room
+7. Leave Room
+8. Loading indicators
+9. Error handling
+10. Retry failed API requests
+11. Proper state synchronization
+12. Reuse existing API services
+
+Never duplicate endpoints.
+
+Never create mock data.
+
+Never bypass backend logic.
+
+--------------------------------------------------
+
+UI REQUIREMENTS
+
+Keep existing UI.
+
+Do not redesign screens.
+
+Reuse widgets wherever possible.
+
+Avoid duplicate code.
+
+--------------------------------------------------
+
+VALIDATION
+
+Before completion verify:
+
+✓ Login works
+
+✓ Lobby loads successfully
+
+✓ Room list loads successfully
+
+✓ Create Room works
+
+✓ Join Room works
+
+✓ Leave Room works
+
+✓ No compile errors
+
+✓ No analyzer warnings
+
+✓ Existing backend remains unchanged
+
+--------------------------------------------------
+
+COMPLETION CRITERIA
+
+Task is complete ONLY if:
+
+- Flutter communicates with the REAL backend.
+- No mock implementation exists.
+- Existing architecture is preserved.
+- No forbidden files were modified.
+
+Finally provide:
+
+1. Files changed
+2. Summary of implementation
+3. Remaining work for Volume 5 Part 2
+
+IMPORTANT
+
+Do NOT begin Volume 5 Part 2 automatically.
+
+Stop after completing ONLY this Part.

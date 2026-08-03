@@ -1,0 +1,206 @@
+VOLUME 2 v2.0
+PART 10 OF 12
+
+TITLE:
+USER INTERFACE, PLAYER EXPERIENCE & INFORMATION DISPLAY
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not analyze existing implementation.
+
+Do not implement.
+
+Only memorize the official Rulebook.
+
+------------------------------------------------------------
+
+DESIGN PRINCIPLE
+
+The User Interface exists only to present official Server information.
+
+UI never decides gameplay.
+
+UI never validates gameplay.
+
+UI never changes gameplay.
+
+------------------------------------------------------------
+
+SCREEN ORIENTATION
+
+Gameplay always runs in:
+
+Landscape Mode.
+
+Portrait gameplay is not supported.
+
+------------------------------------------------------------
+
+TABLE LAYOUT
+
+Default Table:
+
+Oval Shape
+
+Default Theme:
+
+Wooden Texture
+
+Future visual customization is allowed.
+
+Gameplay must never depend on table appearance.
+
+------------------------------------------------------------
+
+PLAYER AREA
+
+Every Player always displays:
+
+• Profile Photo
+• Display Name
+• Online Status
+• Connection Status
+• Mic Status
+• Admin Badge (if applicable)
+• Dealer Badge (if applicable)
+• Bid Winner Badge (if applicable)
+
+These indicators update automatically from Server State.
+
+------------------------------------------------------------
+
+CARD DISPLAY
+
+Each Player area contains:
+
+• Face-up Zone
+• Face-down Zone
+• Secret Hand Zone
+
+Only information permitted by the Rulebook is visible.
+
+Hidden cards must never be exposed.
+
+------------------------------------------------------------
+
+LIVE MATCH PANEL
+
+A permanent Match Progress Panel shall remain visible.
+
+The panel displays:
+
+• Bid Winner Team
+• Final Bid
+• Final Trump
+• Team A Progress
+• Team B Progress
+
+Progress updates after every completed Trick.
+
+------------------------------------------------------------
+
+SCOREBOARD
+
+Players may open the Scoreboard at any time.
+
+The Scoreboard displays only public information.
+
+Scoreboard data always comes from the Server.
+
+------------------------------------------------------------
+
+RESULT POPUP
+
+At Round completion:
+
+A short Result Popup displays:
+
+• Round Winner
+• Tricks Won
+• Final Bid
+• Bid Success / Failure
+• Updated Match Score
+
+After completion,
+
+the next Round begins according to the Rulebook.
+
+------------------------------------------------------------
+
+NOTIFICATIONS
+
+Gameplay notifications include:
+
+• Illegal Move
+• Timer Changed
+• Match Started
+• Match Stopped
+• Player Joined
+• Player Left
+• Admin Changed
+
+Notifications are informational only.
+
+They never modify gameplay.
+
+------------------------------------------------------------
+
+VOICE INDICATORS
+
+When a Player speaks:
+
+The speaking indicator appears around that Player.
+
+Voice indicators never affect gameplay.
+
+------------------------------------------------------------
+
+SPECTATOR DISPLAY
+
+Spectators view only information permitted by the Rulebook.
+
+Hidden gameplay information remains hidden.
+
+------------------------------------------------------------
+
+VISUAL EFFECTS
+
+Animations should be:
+
+• Smooth
+• Lightweight
+• Consistent
+
+Visual effects must never delay gameplay.
+
+------------------------------------------------------------
+
+ACCESSIBILITY
+
+All gameplay information should remain:
+
+• Clear
+• Readable
+• Consistent
+
+Visual design must support long multiplayer sessions.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Presentation may change.
+
+Gameplay never changes.
+
+Server data is always the source of every visible element.
+
+END OF PART 10
+
+WAIT FOR PART 11.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

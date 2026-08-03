@@ -1,0 +1,257 @@
+VOLUME 5 — PART 3
+
+Flutter Lobby UI + Lobby Socket + Room Management
+
+Read this entire prompt before making any changes.
+
+Continue from the existing codebase.
+
+Volume 5 Part 1 and Part 2 are already complete.
+
+Do NOT modify completed authentication logic except where required for lobby integration.
+
+IMPORTANT
+
+Follow the existing architecture.
+
+Do not rewrite completed code.
+
+Reuse existing providers, repositories, services and models whenever possible.
+
+Maintain the same coding style.
+
+FIRST
+
+Before writing any code:
+
+Read every existing backend file related to lobby.
+
+Especially inspect:
+
+- room.handler.ts
+- chat.handler.ts
+- socket/index.ts
+- socket/types.ts
+- reconnect.service.ts
+- game.service.ts
+- routes/rooms.ts
+
+Also inspect Flutter auth implementation completed in Part 2.
+
+Understand all existing socket events before implementing Flutter.
+
+Do NOT invent new events.
+
+Use existing backend APIs and socket events only.
+
+FIX BOTH AUDIT DEFECTS FIRST
+
+Before implementing new UI:
+
+Fix the two issues found during the audit.
+
+Fix 1
+
+registerChatHandlers is currently never registered.
+
+Wire it correctly into socket/index.ts.
+
+Lobby chat must actually work.
+
+Fix 2
+
+Flutter currently connects only to /game.
+
+Create proper LobbySocketService.
+
+Flutter must connect to the existing /lobby namespace after authentication.
+
+Never duplicate socket connections.
+
+Manage lifecycle correctly.
+
+IMPLEMENT COMPLETE PART 3
+
+Implement ONLY these features.
+
+Nothing beyond this list.
+
+1. Lobby Screen
+
+Replace the placeholder screen.
+
+Display:
+
+- user info
+- room status
+- connection status
+- room code
+- player count
+
+2. Lobby Socket
+
+Connect to:
+
+/lobby
+
+after successful login.
+
+Reconnect automatically if disconnected.
+
+Dispose correctly on logout.
+
+3. Room List
+
+Implement GET /api/rooms.
+
+Show:
+
+- room code
+- player count
+- status
+- whether joinable
+
+Support refresh.
+
+4. Create Room
+
+Implement Flutter flow for existing backend event.
+
+No backend rewrite.
+
+5. Join Room
+
+Support:
+
+- room code
+- room selection
+
+Use existing backend handlers.
+
+6. Leave Room
+
+Wire existing backend implementation.
+
+7. Seat Selection
+
+Implement UI.
+
+Send existing seatPreference.
+
+Display occupied seats.
+
+8. Team Assignment
+
+Display teams according to backend logic.
+
+Do not change backend algorithm.
+
+9. Ready / Unready
+
+Implement Ready button.
+
+Reflect player ready states live.
+
+10. Lobby Chat
+
+Use existing backend events.
+
+Show:
+
+- sender
+- timestamp
+- messages
+
+Simple functional UI only.
+
+11. Real-time Lobby Updates
+
+Implement listeners for:
+
+- player joined
+- player left
+- ready changed
+- room updated
+- game starting
+- game started
+
+Update UI immediately.
+
+12. Loading States
+
+Implement loading indicators for:
+
+- room list
+- create room
+- join room
+- reconnect
+
+13. Error Handling
+
+Display meaningful user-friendly errors.
+
+Reuse existing ApiException structure.
+
+DO NOT IMPLEMENT
+
+- Gameplay
+- Bidding
+- Cards
+- Turn logic
+- Gameplay socket
+- Scoring
+- Volume 5 Part 4
+
+CODE QUALITY
+
+Use Riverpod.
+
+Keep widgets modular.
+
+Avoid duplicate code.
+
+Follow existing architecture.
+
+No dead code.
+
+No unused providers.
+
+No duplicate socket listeners.
+
+BEFORE COMPLETION
+
+Review every modified file.
+
+Verify imports.
+
+Verify socket lifecycle.
+
+Verify logout cleanup.
+
+Verify reconnect.
+
+Verify room updates.
+
+Verify chat.
+
+Run flutter analyze.
+
+Run flutter test.
+
+Run backend tests.
+
+Create a checkpoint.
+
+FINAL OUTPUT
+
+Provide:
+
+1. Files created
+2. Files modified
+3. Lobby event flow
+4. Socket lifecycle
+5. Remaining work for Volume 5 Part 4
+
+Do NOT implement Part 4.
+
+Stop after completing Volume 5 Part 3.

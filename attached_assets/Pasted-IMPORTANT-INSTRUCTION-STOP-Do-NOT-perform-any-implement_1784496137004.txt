@@ -1,0 +1,88 @@
+IMPORTANT INSTRUCTION
+
+STOP.
+
+Do NOT perform any implementation analysis, repository mapping, migration planning, conflict detection, code comparison, refactoring recommendations, or architecture validation at this stage.
+
+Your current task is ONLY to learn and internalize the Official Chhakri Rulebook.
+
+Treat RULE-001 to RULE-030 as the single source of truth.
+
+These rules are FINAL.
+
+They are NOT drafts.
+
+They are NOT examples.
+
+They are NOT suggestions.
+
+They are the Official Gameplay Constitution of the project.
+
+Your responsibilities at this stage are ONLY:
+
+1. Read every rule carefully.
+2. Understand every gameplay rule.
+3. Build an internal understanding of gameplay.
+4. Learn terminology.
+5. Learn complete match flow.
+6. Learn bidding system.
+7. Learn trump system.
+8. Learn trick system.
+9. Learn scoring system.
+10. Learn round flow.
+11. Learn series flow.
+12. Learn room system.
+13. Learn admin permissions.
+14. Learn multiplayer behaviour.
+15. Learn UI concepts.
+16. Learn player visibility rules.
+17. Learn server authority principles.
+18. Learn every definition without making assumptions.
+
+DO NOT compare these rules with the existing codebase.
+
+DO NOT mention existing implementation.
+
+DO NOT search for conflicts.
+
+DO NOT recommend rebuilding anything.
+
+DO NOT propose refactoring.
+
+DO NOT suggest architecture changes.
+
+DO NOT suggest database changes.
+
+DO NOT inspect existing engine behaviour.
+
+DO NOT inspect existing socket events.
+
+DO NOT inspect repository implementation.
+
+DO NOT inspect game phases.
+
+DO NOT produce migration plans.
+
+Simply absorb the Rulebook exactly as written.
+
+Zero Assumption Policy is mandatory.
+
+If any rule appears unusual, unique, or different from other card games, accept it exactly as written.
+
+Never replace it with a generic trick-taking rule.
+
+Never infer missing behaviour.
+
+Never modify wording.
+
+After receiving all Rulebook Parts, provide ONLY:
+
+• Confirmation that the Rulebook has been fully understood.
+• A concise summary of the complete gameplay flow.
+• A list of gameplay entities understood.
+• A list of gameplay terminology understood.
+• Confirmation that the Rulebook is now the authoritative source for all future implementation.
+
+Do not analyze the repository until explicitly instructed in Volume 3.
+
+Await the remaining Rulebook specification.

@@ -1,0 +1,189 @@
+VOLUME 2 v2.0
+PART 6 OF 12
+
+TITLE:
+TURN ENGINE & LEGAL MOVE VALIDATION
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not perform conflict analysis.
+
+Do not suggest implementation.
+
+Only memorize the official gameplay specification below.
+
+------------------------------------------------------------
+
+OFFICIAL TURN ENGINE
+
+The Server always owns the turn.
+
+Only one player may have the turn at any time.
+
+No simultaneous turns are ever allowed.
+
+A player's turn begins only after the previous legal move has been completely validated and committed by the server.
+
+If a player disconnects during his turn:
+
+• Wait for the configured reconnect timeout.
+• If the player reconnects, continue the same turn.
+• Otherwise AI immediately completes that turn using only legal moves.
+
+------------------------------------------------------------
+
+TURN ORDER
+
+The order of play is always clockwise.
+
+After every legal card:
+
+Server immediately advances the turn to the next active seat.
+
+No player may skip another player.
+
+No player may play twice in the same Trick.
+
+Every player must play exactly one card per Trick.
+
+After every player has played exactly one card:
+
+The Trick becomes complete.
+
+------------------------------------------------------------
+
+LEGAL MOVE VALIDATION
+
+Before accepting any card, the Server must validate:
+
+1. Is this the player's turn?
+
+2. Does the player still own this card?
+
+3. Has this card already been played?
+
+4. Is the selected card currently playable?
+
+5. Is Lead Suit available inside:
+   • Face-up Cards
+   • Secret Hand Cards
+
+If YES:
+
+Only Lead Suit cards are legal.
+
+Face-down cannot be opened.
+
+Trump cannot be played.
+
+Other suits are illegal.
+
+If NO:
+
+Player may legally play:
+
+• Any Face-up card
+
+• Any Secret Hand card
+
+• OR open exactly one Face-down card.
+
+------------------------------------------------------------
+
+FACE-DOWN VALIDATION
+
+Opening Face-down is legal ONLY when:
+
+Lead Suit does not exist in:
+
+• Face-up zone
+
+AND
+
+• Secret Hand zone.
+
+Player may choose ANY Face-down position.
+
+Server reveals only that card.
+
+That revealed card becomes compulsory.
+
+No replacement.
+
+No second selection.
+
+No cancellation.
+
+------------------------------------------------------------
+
+TRUMP VALIDATION
+
+Trump is NEVER mandatory.
+
+Overcut NEVER exists.
+
+If Lead Suit is unavailable:
+
+Player may:
+
+Play Trump,
+
+Play another Suit,
+
+Play Secret,
+
+OR reveal Face-down.
+
+All are legal.
+
+------------------------------------------------------------
+
+ILLEGAL MOVE
+
+If any illegal move is attempted:
+
+Server rejects it.
+
+Original card ownership remains unchanged.
+
+Penalty rules defined in Rule-20 will apply.
+
+Turn does NOT advance until a legal move is accepted.
+
+------------------------------------------------------------
+
+TURN COMPLETION
+
+Immediately after a legal card:
+
+Server updates:
+
+• Played card
+• Card ownership
+• Player zones
+• Trick state
+• Public visibility
+
+Then turn advances clockwise.
+
+------------------------------------------------------------
+
+AUTHORITATIVE PRINCIPLE
+
+Clients never decide legality.
+
+Clients never decide Trick winner.
+
+Clients never decide turn ownership.
+
+Server validates everything.
+
+This rule is immutable.
+
+END OF PART 6
+
+WAIT FOR PART 7.
+DO NOT IMPLEMENT.
+ONLY MEMORIZE.

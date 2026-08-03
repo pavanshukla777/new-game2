@@ -1,0 +1,249 @@
+VOLUME 2 v2.0
+PART 9 OF 12
+
+TITLE:
+NETWORK, RECONNECTION, AI CONTROL & FAIR PLAY
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not analyze existing code.
+
+Do not implement.
+
+Only memorize the official Rulebook.
+
+------------------------------------------------------------
+
+SERVER AUTHORITY
+
+The Server is the only authority for:
+
+• Game State
+• Cards
+• Scores
+• Tricks
+• Turns
+• Timer
+• Bids
+• Trump
+• Player Status
+
+Clients only display Server decisions.
+
+------------------------------------------------------------
+
+PLAYER CONNECTION STATES
+
+Every Player is always in exactly one state:
+
+CONNECTED
+
+RECONNECTING
+
+AI_PLAYING
+
+Only the Server may change these states.
+
+------------------------------------------------------------
+
+RECONNECTION
+
+If a Player disconnects:
+
+Server starts the configured reconnect timer.
+
+Room Admin chooses this timeout before the Match begins.
+
+Example:
+
+30 Seconds
+
+or
+
+60 Seconds
+
+If the Player reconnects before timeout:
+
+The Player resumes exactly the same Match.
+
+Same Room.
+
+Same Seat.
+
+Same Cards.
+
+Same Turn.
+
+Nothing is reset.
+
+------------------------------------------------------------
+
+AI TAKEOVER
+
+If reconnect timeout expires:
+
+Server immediately transfers control to AI.
+
+AI receives:
+
+Current Game State only.
+
+AI never receives hidden information beyond Server authority.
+
+AI must always obey every Rule in the Rulebook.
+
+AI can never perform an illegal move.
+
+------------------------------------------------------------
+
+PLAYER RETURN
+
+Whenever the disconnected Player reconnects:
+
+Server immediately restores control from AI to Player.
+
+Cards never change.
+
+Score never changes.
+
+Seat never changes.
+
+Game continues normally.
+
+------------------------------------------------------------
+
+MULTIPLE LOGIN
+
+One Account
+
+=
+
+One Active Device.
+
+If another device logs into the same Account:
+
+Previous device is logged out automatically.
+
+Server preserves:
+
+Room
+
+Seat
+
+Game Progress
+
+Player Identity
+
+------------------------------------------------------------
+
+NETWORK FAILURE
+
+Temporary packet loss,
+
+High latency,
+
+Slow internet,
+
+or brief interruption
+
+must never change:
+
+Cards
+
+Score
+
+Bid
+
+Trump
+
+Turn
+
+Trick Result
+
+Only Server State is authoritative.
+
+------------------------------------------------------------
+
+ANTI-CHEAT
+
+Clients must never be trusted.
+
+Clients cannot:
+
+Change Cards
+
+Change Scores
+
+Change Tricks
+
+Change Timer
+
+Change Trump
+
+Change Bid
+
+Change Player Identity
+
+All important actions require Server validation.
+
+------------------------------------------------------------
+
+INFORMATION SECURITY
+
+Players may know only:
+
+Own Secret Hand
+
+Own Face-down Cards
+
+All Face-up Cards
+
+Played Cards
+
+Public Score
+
+Public Bid
+
+Public Trump
+
+Nothing else.
+
+Partner Secret Cards remain hidden.
+
+Opponent Secret Cards remain hidden.
+
+Opponent Face-down Cards remain hidden.
+
+------------------------------------------------------------
+
+FAIR PLAY
+
+No private Team communication.
+
+No hidden gameplay information.
+
+No client-side rule execution.
+
+No client-side score calculation.
+
+Server validates every gameplay decision.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+If Server State and Client State ever differ,
+
+Server State is always correct.
+
+Client must synchronize to the Server.
+
+END OF PART 9
+
+WAIT FOR PART 10.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

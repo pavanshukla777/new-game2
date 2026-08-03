@@ -1,0 +1,127 @@
+VOLUME 6 — PART 6
+ARCHITECT EDITION
+FINAL TRUMP SELECTION
+
+IMPORTANT
+
+Read this ENTIRE prompt before writing any code.
+
+First perform a complete audit of the current implementation.
+
+Determine exactly what already exists and what is missing.
+
+Do NOT duplicate existing logic.
+
+Reuse all existing engine functions, validation chain, socket handlers, timers, snapshots, reconnect logic, state models, and tests wherever possible.
+
+Implement ONLY the missing functionality required by this specification.
+
+----------------------------------------
+OBJECTIVE
+----------------------------------------
+
+Implement the complete Final Trump Selection phase.
+
+This phase begins immediately after Secondary (Final) Bidding finishes.
+
+The final winning bidder must choose the Final Trump suit.
+
+After Final Trump Selection completes, the engine must transition into the Playing phase.
+
+Do NOT implement gameplay itself.
+
+----------------------------------------
+IMPLEMENT
+----------------------------------------
+
+1. Transition from Secondary Bidding → Final Trump Selection.
+
+2. Restrict Final Trump selection to the winning bidder only.
+
+3. Complete Final Trump validation.
+
+4. Suit validation.
+
+5. No duplicate selections.
+
+6. Reject out-of-turn requests.
+
+7. Reject invalid phase requests.
+
+8. Update authoritative game state.
+
+9. Broadcast final trump to every player.
+
+10. Update client state.
+
+11. Generate correct validActions.
+
+12. Timer integration.
+
+13. Socket synchronization.
+
+14. Snapshot serialization/restoration.
+
+15. Disconnect/Reconnect support.
+
+16. Complete backend unit tests.
+
+17. Complete scenario/integration tests.
+
+----------------------------------------
+REQUIRED TEST COVERAGE
+----------------------------------------
+
+Include comprehensive tests for:
+
+• Normal Final Trump Selection
+• All four suits
+• Invalid suits
+• Duplicate selection
+• Out-of-turn requests
+• Wrong phase requests
+• Timer expiry
+• State synchronization
+• Client synchronization
+• Snapshot restoration
+• Disconnect/Reconnect
+• Race conditions
+• Concurrent requests
+• 4-player mode
+• 6-player mode
+• Full engine flow
+• Transition into Playing phase
+
+All previous tests must continue passing.
+
+----------------------------------------
+STRICTLY DO NOT IMPLEMENT
+----------------------------------------
+
+DO NOT implement:
+
+• Card play
+• Trick engine
+• Follow-suit logic
+• Trick winner calculation
+• Round scoring
+• Match scoring
+• Game completion
+• Flutter gameplay UI
+• Animations
+• Statistics
+• Any unrelated refactoring
+
+ONLY implement Final Trump Selection and transition into Playing phase.
+
+Maintain full backward compatibility.
+
+Finish with a completion report including:
+
+• Audit findings
+• Files modified
+• Files added
+• Tests added
+• Total test count
+• All tests passing
+• Any bugs discovered/fixed

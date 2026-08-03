@@ -1,0 +1,177 @@
+VOLUME 3 v1.0
+PART 6 OF 15
+
+TITLE:
+GAP IDENTIFICATION FRAMEWORK
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+Gap identification begins only after the repository inventory and coverage analysis are complete.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+The objective is to identify where the existing repository differs from the Official Rulebook.
+
+This is an identification exercise only.
+
+No fixes.
+
+No redesign.
+
+No migration.
+
+------------------------------------------------------------
+
+GAP DEFINITION
+
+A Gap exists only when:
+
+The Official Rulebook explicitly defines behavior,
+
+AND
+
+the repository evidence shows that behavior is absent, incomplete, or implemented differently.
+
+No assumptions.
+
+------------------------------------------------------------
+
+GAP CATEGORIES
+
+Every identified Gap must belong to exactly one category:
+
+1.
+
+MISSING
+
+Required Rulebook behavior is not found.
+
+2.
+
+PARTIAL
+
+Some Rulebook behavior exists.
+
+Implementation is incomplete.
+
+3.
+
+DIFFERENT
+
+Behavior exists,
+
+but differs from the Official Rulebook.
+
+4.
+
+UNKNOWN
+
+Insufficient repository evidence.
+
+Never guess.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every identified Gap record:
+
+Gap ID
+
+Rulebook Section
+
+Responsible Module(s)
+
+Category
+
+Evidence Location
+
+Nothing else.
+
+No explanation.
+
+No recommendation.
+
+------------------------------------------------------------
+
+EVIDENCE
+
+Every Gap must reference repository evidence.
+
+Examples:
+
+Source File
+
+Database Schema
+
+Socket Event
+
+API
+
+Flutter Screen
+
+Game Engine
+
+Validation Logic
+
+Do not use comments as evidence.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT describe solutions.
+
+Do NOT redesign architecture.
+
+Do NOT propose implementation.
+
+Do NOT estimate effort.
+
+Do NOT prioritize.
+
+Only identify and classify.
+
+------------------------------------------------------------
+
+GAP REGISTER
+
+Create one official Gap Register.
+
+Each Gap receives a permanent identifier.
+
+Example:
+
+GAP-001
+
+GAP-002
+
+GAP-003
+
+Identifiers never change.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+A Gap is not a bug.
+
+A Gap is simply a documented difference between the Official Rulebook and the current repository.
+
+Migration planning begins only after the complete Gap Register exists.
+
+END OF PART 6
+
+WAIT FOR PART 7.
+
+DO NOT IMPLEMENT.
+
+ONLY IDENTIFY AND DOCUMENT.

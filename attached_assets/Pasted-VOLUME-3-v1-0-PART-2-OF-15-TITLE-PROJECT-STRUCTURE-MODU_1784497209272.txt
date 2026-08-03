@@ -1,0 +1,203 @@
+VOLUME 3 v1.0
+PART 2 OF 15
+
+TITLE:
+PROJECT STRUCTURE & MODULE INVENTORY
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not generate implementation.
+
+Only build a complete inventory of the existing project structure.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Create a complete map of the repository.
+
+Every important folder, package and module must be identified.
+
+No gameplay analysis is required yet.
+
+------------------------------------------------------------
+
+PROJECT INVENTORY
+
+Identify and document:
+
+• Root folders
+
+• Backend folders
+
+• Flutter folders
+
+• Shared libraries
+
+• Database files
+
+• Socket modules
+
+• AI modules
+
+• Assets
+
+• Configuration files
+
+• Build scripts
+
+• Environment files
+
+• Test folders
+
+Nothing should remain undocumented.
+
+------------------------------------------------------------
+
+MODULE CLASSIFICATION
+
+Every discovered module must be classified into exactly one category:
+
+Gameplay
+
+Networking
+
+Database
+
+Authentication
+
+Room Management
+
+Player Management
+
+AI
+
+UI
+
+Utilities
+
+Configuration
+
+Testing
+
+Build System
+
+Shared Models
+
+If uncertain,
+
+record the module as "Unknown" without making assumptions.
+
+------------------------------------------------------------
+
+DEPENDENCY MAPPING
+
+For every module identify only:
+
+• What it imports
+
+• What imports it
+
+• Public interfaces
+
+• Internal dependencies
+
+Do not judge whether the dependency is good or bad.
+
+------------------------------------------------------------
+
+ENTRY POINTS
+
+Locate all application entry points.
+
+Examples include:
+
+• Backend startup
+
+• Flutter main entry
+
+• Socket initialization
+
+• Database initialization
+
+• Configuration loading
+
+Only document them.
+
+Do not modify execution flow.
+
+------------------------------------------------------------
+
+CONFIGURATION SOURCES
+
+Identify every configuration source including:
+
+• Environment variables
+
+• Constants
+
+• Configuration classes
+
+• Runtime settings
+
+• Feature flags
+
+Record where each configuration originates.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every module record:
+
+Module Name
+
+Category
+
+Location
+
+Primary Responsibility
+
+Dependencies
+
+Related Entry Point
+
+Current Status
+
+No recommendations.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT compare with the Rulebook.
+
+Do NOT report conflicts.
+
+Do NOT suggest improvements.
+
+Do NOT redesign folders.
+
+Do NOT rename modules.
+
+Only create a complete structural inventory.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Every future architecture decision must reference this inventory.
+
+No implementation work begins until the complete project structure is understood.
+
+END OF PART 2
+
+WAIT FOR PART 3.
+
+DO NOT IMPLEMENT.
+
+ONLY AUDIT AND MEMORIZE.

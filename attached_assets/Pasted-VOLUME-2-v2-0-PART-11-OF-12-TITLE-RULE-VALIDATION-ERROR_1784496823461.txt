@@ -1,0 +1,171 @@
+VOLUME 2 v2.0
+PART 11 OF 12
+
+TITLE:
+RULE VALIDATION, ERROR HANDLING & IMMUTABLE PRINCIPLES
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not analyze existing implementation.
+
+Do not implement.
+
+Only memorize the official Rulebook.
+
+------------------------------------------------------------
+
+RULE VALIDATION
+
+Every gameplay action must be validated by the Server before it becomes official.
+
+Validation always occurs before:
+
+• Card Play
+• Bid
+• Turn Change
+• Trick Completion
+• Round Completion
+• Score Update
+• Series Completion
+
+No client decision is final.
+
+------------------------------------------------------------
+
+VALIDATION ORDER
+
+For every action, the Server validates in the following order:
+
+1. Player Identity
+
+2. Match State
+
+3. Turn Ownership
+
+4. Action Legality
+
+5. Rule Compliance
+
+6. State Update
+
+7. Client Synchronization
+
+Only after successful validation does the action become official.
+
+------------------------------------------------------------
+
+INVALID ACTION
+
+If validation fails:
+
+• Action is rejected.
+• Game State remains unchanged.
+• Turn does not advance.
+• Clients receive the updated valid state.
+• Rule-20 penalty applies where applicable.
+
+Rejected actions never become part of Match History.
+
+------------------------------------------------------------
+
+STATE CONSISTENCY
+
+At every moment there must be only one official Match State.
+
+All Players observe the same authoritative state provided by the Server.
+
+Conflicting Match States are never permitted.
+
+------------------------------------------------------------
+
+MATCH HISTORY
+
+Every official gameplay event becomes part of Match History.
+
+Examples include:
+
+• Match Start
+• Dealer Selection
+• Bid
+• Trump Selection
+• Card Played
+• Trick Winner
+• Round Winner
+• Score Update
+• Series Winner
+
+Rejected actions are never recorded.
+
+------------------------------------------------------------
+
+RECOVERY
+
+If temporary synchronization fails:
+
+The Server sends the latest official Match State.
+
+Clients must immediately synchronize.
+
+Gameplay resumes only from the official Server State.
+
+------------------------------------------------------------
+
+RULE PRIORITY
+
+If two rules ever appear to conflict:
+
+The Official Rulebook always has higher priority than implementation details.
+
+Implementation must adapt to the Rulebook.
+
+The Rulebook never adapts to implementation.
+
+------------------------------------------------------------
+
+ZERO ASSUMPTION POLICY
+
+No gameplay rule may be invented.
+
+No hidden behavior may be assumed.
+
+No undocumented mechanic may be introduced.
+
+If a behavior is not defined in the Official Rulebook, it is considered undefined until officially added.
+
+------------------------------------------------------------
+
+BACKWARD COMPATIBILITY
+
+Future features may be added.
+
+Existing Official Rules must continue to function exactly as defined unless the Rulebook itself is officially revised.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Official Gameplay Rules are the highest authority.
+
+Server implementation,
+
+Client implementation,
+
+UI,
+
+Animations,
+
+Network,
+
+and AI
+
+must always follow the Official Rulebook.
+
+END OF PART 11
+
+WAIT FOR PART 12.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

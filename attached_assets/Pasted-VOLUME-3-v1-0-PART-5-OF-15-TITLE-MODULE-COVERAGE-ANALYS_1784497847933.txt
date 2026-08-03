@@ -1,0 +1,174 @@
+VOLUME 3 v1.0
+PART 5 OF 15
+
+TITLE:
+MODULE COVERAGE ANALYSIS
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+Continue the Module → Rulebook mapping.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+The mapping between repository modules and Official Rulebook sections is now available.
+
+The next objective is to measure how much of each Rulebook section is currently covered.
+
+This is a coverage assessment only.
+
+It is NOT a bug report.
+
+------------------------------------------------------------
+
+COVERAGE PRINCIPLE
+
+For every Rulebook Section determine:
+
+Which repository modules participate.
+
+Whether the section appears to be:
+
+• COMPLETE
+• PARTIAL
+• NOT FOUND
+• UNKNOWN
+
+Use only observable repository evidence.
+
+Never guess.
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every Rulebook Section record:
+
+Rulebook Section
+
+Responsible Module(s)
+
+Primary Files
+
+Coverage Status
+
+Evidence Source
+
+Nothing else.
+
+------------------------------------------------------------
+
+EVIDENCE
+
+Coverage must be based only on:
+
+• Existing source code
+
+• Existing interfaces
+
+• Existing models
+
+• Existing APIs
+
+• Existing Socket Events
+
+• Existing database schema
+
+• Existing UI
+
+Comments alone are NOT evidence.
+
+Documentation alone is NOT evidence.
+
+------------------------------------------------------------
+
+NO GAP ANALYSIS
+
+If Coverage is:
+
+PARTIAL
+
+or
+
+NOT FOUND
+
+Do NOT explain why.
+
+Do NOT describe missing behavior.
+
+Do NOT propose solutions.
+
+Only record the status.
+
+------------------------------------------------------------
+
+MULTI-MODULE RULES
+
+A Rulebook Section may be implemented across multiple modules.
+
+Example:
+
+Turn Engine
+
+→ Game Engine
+
+→ Socket Layer
+
+→ Flutter Client
+
+→ Validation
+
+Record every participating module.
+
+------------------------------------------------------------
+
+UNKNOWN
+
+If repository evidence is insufficient,
+
+record:
+
+UNKNOWN
+
+Continue to the next Rulebook Section.
+
+Never infer implementation.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT identify conflicts.
+
+Do NOT classify defects.
+
+Do NOT recommend migration.
+
+Do NOT redesign architecture.
+
+Do NOT implement.
+
+Only measure observable Rulebook coverage.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+Coverage assessment is factual documentation only.
+
+Migration decisions begin in the next phase, not here.
+
+END OF PART 5
+
+WAIT FOR PART 6.
+
+DO NOT IMPLEMENT.
+
+ONLY ANALYZE AND DOCUMENT.

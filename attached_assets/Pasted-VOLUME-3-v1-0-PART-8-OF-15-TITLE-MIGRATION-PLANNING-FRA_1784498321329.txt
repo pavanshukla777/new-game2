@@ -1,0 +1,199 @@
+VOLUME 3 v1.0
+PART 8 OF 15
+
+TITLE:
+MIGRATION PLANNING FRAMEWORK
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+Migration planning begins only after the Gap Register and Dependency Analysis are complete.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+The objective is to define how every documented Gap will eventually be resolved.
+
+This is planning only.
+
+No code changes.
+
+No implementation.
+
+------------------------------------------------------------
+
+MIGRATION PRINCIPLE
+
+Every Gap shall be resolved using the smallest safe architectural change.
+
+The Official Rulebook remains the only source of gameplay truth.
+
+Existing architecture should be preserved whenever possible.
+
+Rewrite only when absolutely necessary.
+
+------------------------------------------------------------
+
+MIGRATION UNIT
+
+Each Gap becomes one Migration Item.
+
+Every Migration Item shall contain:
+
+Migration ID
+
+Related Gap ID
+
+Responsible Module(s)
+
+Affected Files
+
+Dependency Level
+
+Implementation Phase
+
+Nothing else.
+
+------------------------------------------------------------
+
+IMPLEMENTATION PHASES
+
+Assign every Migration Item to one phase only.
+
+Phase 1
+
+Foundation
+
+Examples:
+
+Core Models
+
+Game State
+
+Server Authority
+
+Shared Types
+
+------------------------------------------------------------
+
+Phase 2
+
+Core Gameplay
+
+Examples:
+
+Card Distribution
+
+Bidding
+
+Trump
+
+Turn Engine
+
+Move Validation
+
+Trick Resolution
+
+Scoring
+
+Series Engine
+
+------------------------------------------------------------
+
+Phase 3
+
+Multiplayer
+
+Examples:
+
+Room Management
+
+Socket Events
+
+Reconnect
+
+AI
+
+Admin
+
+Voice
+
+------------------------------------------------------------
+
+Phase 4
+
+Presentation
+
+Examples:
+
+Flutter UI
+
+Animations
+
+Panels
+
+Notifications
+
+Accessibility
+
+------------------------------------------------------------
+
+MIGRATION RULES
+
+Migration Items must respect all dependencies identified in Part 7.
+
+No Migration Item may be scheduled before its dependencies.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT modify source code.
+
+Do NOT generate patches.
+
+Do NOT redesign architecture.
+
+Do NOT estimate effort.
+
+Do NOT implement.
+
+Only prepare the official Migration Plan.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+The Migration Plan becomes the single implementation roadmap.
+
+Every future code change must reference:
+
+Migration ID
+
+↓
+
+Gap ID
+
+↓
+
+Official Rulebook Section
+
+↓
+
+Repository Module
+
+No implementation may bypass this chain.
+
+END OF PART 8
+
+WAIT FOR PART 9.
+
+DO NOT IMPLEMENT.
+
+ONLY PLAN AND DOCUMENT.

@@ -1,0 +1,105 @@
+VOLUME 5 — PART 4
+GAME START & REAL-TIME GAME TRANSITION
+
+IMPORTANT
+
+Read this prompt completely before making any changes.
+
+This is ONLY Volume 5 Part 4.
+
+Do NOT implement anything from Part 5 or Part 6.
+
+Do NOT modify authentication.
+
+Do NOT modify lobby features except where required for game transition.
+
+Do NOT change game rules or gameplay.
+
+--------------------------------------------------
+OBJECTIVE
+--------------------------------------------------
+
+Implement the complete transition from Lobby → Game.
+
+When all required players are seated and marked Ready, every connected player must automatically transition into the Game screen in perfect synchronization.
+
+This part ONLY covers the transition into the game.
+
+NOT gameplay.
+
+--------------------------------------------------
+REQUIRED FEATURES
+--------------------------------------------------
+
+1. Handle lobby:game_starting event.
+
+2. Handle lobby:game_started event.
+
+3. Countdown overlay.
+
+4. Automatic navigation to Game screen.
+
+5. Prevent duplicate navigation.
+
+6. Support reconnect during countdown.
+
+7. Ignore duplicate socket events.
+
+8. Dispose listeners correctly.
+
+9. Preserve room/game state during transition.
+
+10. Show loading state if game payload is still being prepared.
+
+--------------------------------------------------
+STRICT REQUIREMENTS
+--------------------------------------------------
+
+DO NOT implement:
+
+- card dealing
+- trump selection
+- bidding
+- turns
+- gameplay
+- scoring
+- reconnect recovery after entering game
+- game engine logic
+- testing improvements
+- Part 5 features
+- Part 6 features
+
+--------------------------------------------------
+QUALITY REQUIREMENTS
+--------------------------------------------------
+
+No placeholder code.
+
+No TODOs.
+
+No dead code.
+
+No duplicate listeners.
+
+No duplicated socket connections.
+
+No breaking existing lobby functionality.
+
+All existing backend tests must continue passing.
+
+Maintain clean architecture.
+
+--------------------------------------------------
+FINAL REPORT MUST INCLUDE
+
+1. Files changed
+
+2. Features implemented
+
+3. Any remaining blockers
+
+4. Backend test results
+
+5. Is Volume 5 Part 4 fully complete?
+
+If anything required by this Part cannot be completed, explain exactly why instead of claiming completion.

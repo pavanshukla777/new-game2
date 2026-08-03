@@ -1,0 +1,86 @@
+VOLUME 6 — PART 3
+ARCHITECT EDITION
+
+IMPORTANT
+
+Read this instruction completely before making any changes.
+
+Scoring has already been corrected and is now Rulebook compliant. Do NOT modify any scoring logic unless required to consume the existing API.
+
+Current production assumptions:
+
+- Phased dealing is already implemented.
+- Scoring bug has already been fixed.
+- Zero-sum invariant is enforced.
+- Rulebook configuration is active.
+- No Dobla/Redouble in production.
+- Lobby, transition and game socket infrastructure already exist.
+
+Your task in Part 3 is ONLY to implement the complete Primary Bidding Engine.
+
+Implement:
+
+1. Bid turn order.
+2. Bid state management.
+3. Pass handling.
+4. Minimum and maximum bid validation.
+5. Legal bid progression.
+6. Bid ownership.
+7. Current highest bid tracking.
+8. Bid completion detection.
+9. Bid winner selection.
+10. Synchronization of bid state across every connected client.
+11. Reconnect snapshot support.
+12. Complete server-side validation.
+13. Proper socket events.
+14. Unit tests for all bid scenarios.
+
+The bidding engine must strictly follow the Official Rulebook.
+
+Requirements:
+
+- No client-authoritative bidding.
+- Server is the only source of truth.
+- Reject illegal bids.
+- Reject bids out of turn.
+- Reject bids below current highest bid.
+- Reject duplicate actions.
+- Reject bidding after bidding is complete.
+- Reconnected players must receive the exact bidding state.
+- Spectators must receive read-only updates.
+
+Testing must include:
+
+- normal bidding
+- consecutive passes
+- winning bid
+- reconnect during bidding
+- invalid bid
+- invalid turn
+- duplicate request
+- simultaneous bid attempts
+- race conditions
+
+STRICTLY DO NOT IMPLEMENT:
+
+- Secondary bidding
+- Trump selection
+- Remaining deal phases
+- Trick play
+- Card play
+- Winner calculation
+- Round completion
+- Match completion
+- Scoring changes
+- UI redesign
+- Refactoring unrelated files
+
+Work only on the Primary Bidding Engine.
+
+When finished, provide:
+
+1. Files modified.
+2. Socket events added.
+3. Tests added.
+4. Test results.
+5. Confirmation that no unrelated modules were changed.

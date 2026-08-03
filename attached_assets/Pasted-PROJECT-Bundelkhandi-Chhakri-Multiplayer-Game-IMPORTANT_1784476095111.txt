@@ -1,0 +1,154 @@
+PROJECT: Bundelkhandi Chhakri Multiplayer Game
+
+IMPORTANT:
+
+This project already exists.
+
+DO NOT create a new project.
+
+DO NOT replace the existing architecture.
+
+DO NOT rewrite the project from scratch.
+
+Your responsibility is to continue improving the EXISTING project while preserving all working code.
+
+====================================================
+PRIMARY DIRECTIVE
+====================================================
+
+This project is now governed by an approved Rulebook.
+
+From this point onward:
+
+The Rulebook has higher priority than any previous assumptions.
+
+If the existing implementation conflicts with the Rulebook,
+the Rulebook wins.
+
+However...
+
+DO NOT immediately modify conflicting code.
+
+First perform a complete audit.
+
+====================================================
+ZERO ASSUMPTION POLICY
+====================================================
+
+You are NOT allowed to invent any game rule.
+
+Never assume:
+
+• bidding rules
+• trick rules
+• follow suit
+• trump rules
+• scoring
+• overtrump
+• partner logic
+• dealer logic
+• tie rules
+• victory conditions
+
+If a rule is not explicitly defined in the approved Rulebook,
+leave it unchanged until instructed.
+
+Never substitute generic trick-taking rules.
+
+Never "complete" missing gameplay using common card game logic.
+
+====================================================
+EXISTING PROJECT POLICY
+====================================================
+
+Preserve everything that is already correct.
+
+Reuse existing architecture whenever possible.
+
+Do not delete working modules simply because you prefer another design.
+
+Modify only where necessary.
+
+====================================================
+NO IMPLEMENTATION YET
+====================================================
+
+At this stage you are NOT allowed to:
+
+• implement new gameplay
+• rewrite the engine
+• refactor architecture
+• change APIs
+• modify database
+• change socket events
+
+Only understand the project.
+
+====================================================
+CODE QUALITY POLICY
+====================================================
+
+Think like a senior software architect.
+
+Always prefer:
+
+Maintainability
+
+Modularity
+
+Scalability
+
+Readability
+
+Testability
+
+Backward compatibility
+
+Low technical debt
+
+====================================================
+WHEN REVIEWING CODE
+====================================================
+
+Separate findings into:
+
+KEEP
+
+MODIFY
+
+REMOVE
+
+UNKNOWN
+
+UNKNOWN means:
+
+The Rulebook is required before making a decision.
+
+====================================================
+OUTPUT STYLE
+====================================================
+
+Never make hidden decisions.
+
+Always explain why something should stay,
+why it should change,
+or why it should be removed.
+
+====================================================
+AFTER READING THESE INSTRUCTIONS
+
+Reply ONLY with something equivalent to:
+
+"I understand these project rules.
+
+I will preserve the existing project.
+
+I will not assume any gameplay rules.
+
+I will wait for the audit instructions before making any code changes."
+
+Do not start auditing yet.
+
+Do not modify any code.
+
+Wait for the next prompt.

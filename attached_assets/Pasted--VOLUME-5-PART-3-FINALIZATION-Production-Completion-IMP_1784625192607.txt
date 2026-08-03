@@ -1,0 +1,171 @@
+# VOLUME 5 — PART 3 FINALIZATION (Production Completion)
+
+## IMPORTANT
+
+Read this entire prompt before making any changes.
+
+This is NOT Volume 5 Part 4.
+
+Do NOT implement gameplay.
+
+Do NOT implement card logic.
+
+Do NOT add reconnect features.
+
+Only complete Part 3 by fixing the remaining correctness bugs and making the lobby production-ready.
+
+---
+
+# Objective
+
+The lobby feature is functionally complete but contains several correctness bugs, lint warnings, and small technical issues.
+
+Your goal is to make Part 3 production-ready without changing the existing architecture.
+
+---
+
+# 1. Fix Kick Notification Bug (Critical)
+
+Current issue:
+
+When an admin kicks a player:
+
+- Backend removes the socket from the room first.
+- Then broadcasts player_left.
+- The kicked client never receives the event.
+- RoomDetailScreen stays open with stale data.
+
+Fix this correctly.
+
+Requirements:
+
+- The kicked player must always receive notification.
+- Clear current room state.
+- Close RoomDetailScreen.
+- Return to LobbyScreen.
+- No stale provider state.
+- No duplicate events.
+
+---
+
+# 2. Fix Admin Transfer Bug (Critical)
+
+Current issue:
+
+When the current admin leaves:
+
+- Database updates the new admin correctly.
+- Flutter UI never receives updated admin information.
+
+Requirements:
+
+Remaining players must immediately see:
+
+- New admin badge.
+- Updated controls.
+- Correct permissions.
+
+Emit a proper room update after admin transfer, or include equivalent information in the existing event.
+
+Keep the existing architecture.
+
+---
+
+# 3. Remove Flutter Analyze Warnings
+
+Current audit reports three warnings.
+
+Remove all warnings.
+
+Examples include:
+
+- Unused ReadyBar callback.
+- Unused CountdownOverlay field.
+- Unused imports.
+
+Final result:
+
+flutter analyze
+
+must report ZERO warnings.
+
+---
+
+# 4. Fix TypeScript Consistency
+
+Resolve small consistency issues including:
+
+- Import extensions.
+- TypeScript typing problems.
+- leave_room acknowledgement typing.
+
+No behavior changes.
+
+---
+
+# 5. Socket Robustness
+
+Do NOT redesign networking.
+
+Only ensure:
+
+- No duplicate listeners.
+- No duplicate socket connections.
+- Proper dispose().
+- Proper reconnect cleanup.
+
+---
+
+# 6. Validation
+
+After fixes verify:
+
+✅ Kicked player exits room correctly.
+
+✅ Admin transfer visible instantly.
+
+✅ Ready/Unready still works.
+
+✅ Chat still works.
+
+✅ Room updates still work.
+
+✅ Loading states unchanged.
+
+✅ Error handling unchanged.
+
+✅ Backend tests still pass.
+
+✅ flutter analyze is clean.
+
+---
+
+# Scope Rules
+
+DO NOT:
+
+- Implement gameplay.
+- Implement reconnect system.
+- Implement turn engine.
+- Implement cards.
+- Implement trump selection.
+- Implement game state synchronization.
+- Change database schema.
+- Refactor architecture.
+- Optimize performance beyond required fixes.
+
+Remain strictly inside Volume 5 Part 3.
+
+---
+
+# Deliverables
+
+At completion provide:
+
+1. Files changed.
+2. Bugs fixed.
+3. flutter analyze result.
+4. Backend test result.
+5. Confirmation whether Volume 5 Part 3 is now truly 100% complete.
+
+Do NOT start Volume 5 Part 4 under any circumstances.

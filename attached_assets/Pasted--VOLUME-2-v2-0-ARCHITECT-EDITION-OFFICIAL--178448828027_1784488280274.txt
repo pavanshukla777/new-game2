@@ -1,0 +1,139 @@
+==========================================================
+VOLUME 2 v2.0
+ARCHITECT EDITION
+OFFICIAL GAMEPLAY RULEBOOK
+
+PART 2 OF 12
+
+==========================================================
+RULE-001
+GAME FORMAT
+Category: CORE
+Priority: CRITICAL
+==========================================================
+
+The official game supports only approved multiplayer formats.
+
+Supported player counts:
+
+• 4 Players
+• 6 Players
+
+No other player count is valid.
+
+If any other player count is requested, the match must not start.
+
+==========================================================
+RULE-002
+DECK CONFIGURATION
+Category: CARD
+Priority: CRITICAL
+==========================================================
+
+The game uses one standard 52-card deck.
+
+Card suits:
+
+• Spade
+• Heart
+• Diamond
+• Club
+
+Each suit contains thirteen cards.
+
+No Jokers are used.
+
+==========================================================
+RULE-003
+FOUR PLAYER DECK
+Category: CARD
+Priority: CRITICAL
+==========================================================
+
+For a four-player match:
+
+Cards numbered 2, 3, 4, 5 and 6 are removed from all four suits.
+
+Total removed cards: 20
+
+Remaining cards: 32
+
+Only these 32 cards participate in gameplay.
+
+==========================================================
+RULE-004
+SIX PLAYER DECK
+Category: CARD
+Priority: CRITICAL
+==========================================================
+
+For a six-player match:
+
+Only the four cards of rank 2 are removed.
+
+Total removed cards: 4
+
+Remaining cards: 48
+
+Only these 48 cards participate in gameplay.
+
+==========================================================
+RULE-005
+TEAM FORMATION
+Category: TEAM
+Priority: CRITICAL
+==========================================================
+
+Teams are fixed.
+
+For six-player matches:
+
+Team A:
+Player 1
+Player 3
+Player 5
+
+Team B:
+Player 2
+Player 4
+Player 6
+
+Team assignment remains unchanged throughout the match.
+
+==========================================================
+RULE-006
+PLAYER SEATING
+Category: PLAYER
+Priority: HIGH
+==========================================================
+
+Player positions are fixed when the match starts.
+
+Seat numbers remain constant until the match ends.
+
+Players cannot change seats during an active match.
+
+==========================================================
+RULE-007
+MATCH VALIDATION
+Category: VALIDATION
+Priority: CRITICAL
+==========================================================
+
+Before gameplay begins, the server must verify:
+
+• Valid player count
+• Correct deck configuration
+• Correct team assignment
+• Successful match creation
+
+If any validation fails, gameplay must not begin.
+
+==========================================================
+END OF PART 2
+
+WAIT FOR PART 3.
+
+DO NOT IMPLEMENT.
+
+DO NOT ASSUME MISSING RULES.

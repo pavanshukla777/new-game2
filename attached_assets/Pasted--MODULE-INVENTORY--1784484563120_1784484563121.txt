@@ -1,0 +1,1332 @@
+----------------------------------------------------------
+MODULE INVENTORY
+----------------------------------------------------------
+
+Every module must receive
+
+Module Name
+
+Purpose
+
+Entry Point
+
+Dependencies
+
+Consumers
+
+Complexity
+
+Maintainability
+
+Risk
+
+Current Status
+
+KEEP
+
+MODIFY
+
+REMOVE
+
+UNKNOWN
+
+----------------------------------------------------------
+PROJECT STRUCTURE ANALYSIS
+----------------------------------------------------------
+
+Determine
+
+Architecture style
+
+Layer separation
+
+Feature organization
+
+Package organization
+
+Shared code quality
+
+Configuration quality
+
+Scalability
+
+Extensibility
+
+Maintainability
+
+Code ownership boundaries
+
+Future modularization readiness
+
+----------------------------------------------------------
+TECHNOLOGY DISCOVERY
+----------------------------------------------------------
+
+Identify
+
+Programming languages
+
+Frameworks
+
+Libraries
+
+Package managers
+
+State management
+
+Database engine
+
+ORM
+
+Socket framework
+
+Authentication system
+
+Build system
+
+Testing framework
+
+CI/CD tools
+
+Deployment platform
+
+Analytics
+
+Crash reporting
+
+Notification providers
+
+Monitoring services
+
+Generate complete technology inventory.
+
+----------------------------------------------------------
+CONFIGURATION INVENTORY
+----------------------------------------------------------
+
+Inspect
+
+pubspec
+
+package.json
+
+build.gradle
+
+Podfile
+
+Docker
+
+Docker Compose
+
+GitHub Actions
+
+Firebase
+
+Environment files
+
+Secrets management
+
+Feature flags
+
+Build variants
+
+Release configuration
+
+Debug configuration
+
+Document only.
+
+----------------------------------------------------------
+DOCUMENTATION INVENTORY
+----------------------------------------------------------
+
+Locate every documentation source.
+
+README
+
+Architecture docs
+
+API docs
+
+Game rules
+
+Comments
+
+Markdown files
+
+Specifications
+
+Planning documents
+
+Developer notes
+
+Missing documentation
+
+Outdated documentation
+
+Conflicting documentation
+
+----------------------------------------------------------
+NO IMPLEMENTATION CHECKPOINT
+----------------------------------------------------------
+
+Before continuing verify
+
+✓ No code modified
+
+✓ No files changed
+
+✓ No dependencies changed
+
+✓ No assumptions made
+
+✓ Read-only mode preserved
+
+If any modification occurs,
+
+STOP immediately
+
+and report it.
+
+==========================================================
+DEEP TECHNICAL AUDIT
+==========================================================
+
+Continue in READ ONLY MODE.
+
+Never modify the repository.
+
+Only inspect and report.
+
+==========================================================
+FLUTTER ARCHITECTURE AUDIT
+==========================================================
+
+Inspect the entire Flutter application.
+
+Create a complete inventory.
+
+For every feature identify
+
+Feature Name
+
+Purpose
+
+Entry Screen
+
+Dependencies
+
+Shared Components
+
+Navigation Path
+
+Current Status
+
+KEEP
+
+MODIFY
+
+REMOVE
+
+UNKNOWN
+
+----------------------------------------------------------
+
+Inspect
+
+Navigation
+
+Routing
+
+Theme
+
+Localization
+
+Assets
+
+Fonts
+
+Icons
+
+Animations
+
+Responsive Layout
+
+Accessibility
+
+Error Screens
+
+Loading States
+
+Offline States
+
+Dialogs
+
+Bottom Sheets
+
+Reusable Widgets
+
+State Management
+
+Dependency Injection
+
+Feature Modules
+
+Shared Utilities
+
+Platform-specific code
+
+----------------------------------------------------------
+
+Create a SCREEN INVENTORY.
+
+Every screen must include
+
+Route
+
+Purpose
+
+Widgets Used
+
+Dependencies
+
+Navigation Sources
+
+Navigation Targets
+
+API Calls
+
+Socket Events
+
+Database Interaction
+
+Rulebook Relevance
+
+Complexity Score
+
+----------------------------------------------------------
+
+Create a WIDGET INVENTORY.
+
+Reusable Widgets
+
+Custom Widgets
+
+Duplicate Widgets
+
+Unused Widgets
+
+Large Widgets
+
+Highly Coupled Widgets
+
+Generic Components
+
+Feature Components
+
+==========================================================
+STATE MANAGEMENT AUDIT
+==========================================================
+
+Identify
+
+Provider
+
+Riverpod
+
+Bloc
+
+Cubit
+
+Redux
+
+GetX
+
+InheritedWidget
+
+ValueNotifier
+
+Custom Architecture
+
+For every state
+
+Owner
+
+Lifecycle
+
+Dependencies
+
+Consumers
+
+Memory Risk
+
+Rebuild Frequency
+
+Maintainability
+
+==========================================================
+BACKEND ARCHITECTURE AUDIT
+==========================================================
+
+Inspect every backend module.
+
+Generate SERVICE INVENTORY.
+
+Controllers
+
+Services
+
+Repositories
+
+Middlewares
+
+Validators
+
+Authentication
+
+Authorization
+
+Schedulers
+
+Background Jobs
+
+Utilities
+
+Configuration
+
+For every service
+
+Purpose
+
+Dependencies
+
+Consumers
+
+Complexity
+
+Status
+
+KEEP
+
+MODIFY
+
+REMOVE
+
+UNKNOWN
+
+==========================================================
+API INVENTORY
+==========================================================
+
+Inspect EVERY endpoint.
+
+For every endpoint document
+
+HTTP Method
+
+URL
+
+Purpose
+
+Authentication Required
+
+Authorization Required
+
+Input Schema
+
+Validation
+
+Output Schema
+
+Error Responses
+
+Dependencies
+
+Database Tables
+
+Socket Events Triggered
+
+Gameplay Relevance
+
+Current Usage
+
+Deprecated Status
+
+Unused Status
+
+Missing Documentation
+
+==========================================================
+SOCKET ARCHITECTURE AUDIT
+==========================================================
+
+Inspect every realtime event.
+
+Generate complete SOCKET MATRIX.
+
+For every socket event
+
+Direction
+
+Client → Server
+
+Server → Client
+
+Broadcast
+
+Private
+
+Trigger
+
+Payload
+
+Receiver
+
+Validation
+
+Authorization
+
+Acknowledgement
+
+Retry Logic
+
+Timeout
+
+Reconnect Support
+
+Duplicate Prevention
+
+Gameplay Relevance
+
+Current Usage
+
+==========================================================
+MULTIPLAYER ENGINE AUDIT
+==========================================================
+
+Verify implementation of
+
+Lobby Creation
+
+Lobby Join
+
+Lobby Leave
+
+Room Ownership
+
+Host Transfer
+
+Reconnect
+
+Disconnect Recovery
+
+Spectator Mode
+
+Player Synchronization
+
+Turn Synchronization
+
+Score Synchronization
+
+Latency Handling
+
+Heartbeat
+
+Timeout Handling
+
+State Recovery
+
+Duplicate Player Protection
+
+Race Condition Protection
+
+Authoritative Server Logic
+
+Conflict Resolution
+
+Never assume implementation.
+
+Report UNKNOWN where evidence is missing.
+
+==========================================================
+DATABASE AUDIT
+==========================================================
+
+Inspect database completely.
+
+Generate TABLE INVENTORY.
+
+For every table
+
+Purpose
+
+Primary Key
+
+Foreign Keys
+
+Indexes
+
+Relationships
+
+Constraints
+
+Triggers
+
+Views
+
+Dependencies
+
+Referenced By
+
+Migration Source
+
+Usage Status
+
+KEEP
+
+MODIFY
+
+REMOVE
+
+UNKNOWN
+
+----------------------------------------------------------
+
+Verify
+
+Normalization
+
+Duplicate Data
+
+Missing Constraints
+
+Unused Tables
+
+Large Tables
+
+Circular Relationships
+
+Potential Integrity Risks
+
+Migration Consistency
+
+==========================================================
+DATA FLOW ANALYSIS
+==========================================================
+
+Trace complete data flow.
+
+Flutter
+
+↓
+
+API
+
+↓
+
+Business Logic
+
+↓
+
+Database
+
+↓
+
+Socket
+
+↓
+
+Client
+
+Verify
+
+Input Validation
+
+Transformation
+
+Storage
+
+Retrieval
+
+Synchronization
+
+Output
+
+Document every flow.
+
+==========================================================
+API ↔ SOCKET CONSISTENCY CHECK
+==========================================================
+
+Cross verify
+
+REST APIs
+
+Realtime Events
+
+Database Updates
+
+State Synchronization
+
+If any API updates state but socket does not synchronize,
+
+report inconsistency.
+
+If socket updates state without persistence,
+
+report inconsistency.
+
+==========================================================
+DATABASE ↔ BACKEND CONSISTENCY
+==========================================================
+
+Verify
+
+Every table has consumers.
+
+Every consumer references valid schema.
+
+No orphan tables.
+
+No orphan repositories.
+
+No dead queries.
+
+No duplicate repositories.
+
+==========================================================
+MODULE COMPLEXITY ANALYSIS
+==========================================================
+
+Score every module
+
+Very Low
+
+Low
+
+Medium
+
+High
+
+Very High
+
+Factors
+
+LOC
+
+Dependencies
+
+Responsibilities
+
+Cyclomatic Complexity (estimate)
+
+Maintainability
+
+Testability
+
+==========================================================
+TECHNICAL CROSS VERIFICATION
+==========================================================
+
+Verify consistency between
+
+Flutter ↔ API
+
+Flutter ↔ Socket
+
+API ↔ Database
+
+Socket ↔ Database
+
+Backend ↔ Shared Models
+
+Shared Models ↔ Flutter
+
+Shared Models ↔ Backend
+
+Any mismatch must be documented.
+
+Never fix during audit.
+
+==========================================================
+CHECKPOINT
+==========================================================
+
+Before continuing verify
+
+✓ No code modified
+
+✓ No refactoring
+
+✓ No generated code
+
+✓ No dependency changes
+
+✓ Read-only mode preserved
+
+Continue only if every condition passes.
+
+==========================================================
+RULEBOOK TRACEABILITY AUDIT
+==========================================================
+
+Continue in STRICT READ ONLY MODE.
+
+Do not modify code.
+
+Do not generate implementation.
+
+Do not infer gameplay.
+
+Evidence only.
+
+==========================================================
+RULEBOOK TRACEABILITY MATRIX
+==========================================================
+
+The finalized official gameplay rulebook is the highest authority.
+
+Create a Rulebook Traceability Matrix.
+
+For EVERY official gameplay rule create one entry.
+
+Each entry must contain
+
+Rule Number
+
+Rule Name
+
+Rule Description
+
+Implementation Status
+
+IMPLEMENTED
+
+PARTIALLY IMPLEMENTED
+
+INCORRECT
+
+MISSING
+
+UNKNOWN
+
+Evidence Files
+
+Evidence Classes
+
+Evidence Functions
+
+Dependencies
+
+Risk Level
+
+Developer Notes
+
+Never skip any rule.
+
+==========================================================
+GAMEPLAY ENGINE AUDIT
+==========================================================
+
+Inspect the complete gameplay engine.
+
+Verify implementation of
+
+Player Count
+
+Team Formation
+
+Dealer Selection
+
+Card Distribution
+
+Card Order
+
+Trump Selection
+
+Turn Rotation
+
+Round Progression
+
+Round Winner
+
+Hand Completion
+
+Score Calculation
+
+Penalty Rules
+
+Victory Conditions
+
+Match Completion
+
+Rematch
+
+Reconnect Behaviour
+
+Host Behaviour
+
+Disconnection Handling
+
+State Persistence
+
+Synchronization
+
+Every gameplay behaviour must map back to one official rule.
+
+==========================================================
+ZERO ASSUMPTION DETECTOR
+==========================================================
+
+Search the entire repository.
+
+Locate every place where gameplay has been assumed.
+
+Examples
+
+Temporary winner logic
+
+Placeholder score logic
+
+Generic trick-taking engine
+
+Default trump logic
+
+Hardcoded ranking
+
+Sample gameplay
+
+Test assumptions
+
+Prototype logic
+
+Temporary constants
+
+Artificial delays
+
+Magic values
+
+Document every occurrence.
+
+==========================================================
+HARDCODED GAME RULE DETECTOR
+==========================================================
+
+Locate
+
+Magic Numbers
+
+Hardcoded Scores
+
+Hardcoded Team Counts
+
+Hardcoded Player Counts
+
+Hardcoded Card Order
+
+Hardcoded Trump
+
+Hardcoded Timers
+
+Hardcoded Limits
+
+Hardcoded Win Conditions
+
+Document file location.
+
+==========================================================
+SECURITY AUDIT
+==========================================================
+
+Inspect
+
+Authentication
+
+Authorization
+
+Session Management
+
+JWT / Tokens
+
+Secrets
+
+Environment Variables
+
+Permissions
+
+Admin Access
+
+Game Ownership
+
+Room Ownership
+
+Input Validation
+
+Output Validation
+
+Replay Attack Protection
+
+Rate Limiting
+
+Duplicate Requests
+
+Malformed Payload Handling
+
+Injection Risks
+
+Information Leakage
+
+Sensitive Logging
+
+For every issue provide
+
+Severity
+
+LOW
+
+MEDIUM
+
+HIGH
+
+CRITICAL
+
+Impact
+
+Evidence
+
+Recommendation
+
+==========================================================
+CHEAT PREVENTION AUDIT
+==========================================================
+
+Inspect multiplayer integrity.
+
+Verify
+
+Server Authoritative Logic
+
+Client Trust Level
+
+Client Validation
+
+Move Validation
+
+Card Validation
+
+Turn Validation
+
+Score Validation
+
+Reconnect Validation
+
+Duplicate Packet Protection
+
+Replay Protection
+
+Out-of-order Packet Handling
+
+Race Condition Handling
+
+Cheat Possibilities
+
+Never assume protection exists.
+
+==========================================================
+PERFORMANCE AUDIT
+==========================================================
+
+Inspect
+
+Flutter Performance
+
+Backend Performance
+
+Socket Performance
+
+Database Performance
+
+Memory Usage
+
+Large Objects
+
+Heavy Widgets
+
+Blocking Operations
+
+Slow Queries
+
+Repeated Queries
+
+Repeated API Calls
+
+Repeated Socket Events
+
+Large Payloads
+
+Memory Leaks
+
+Potential Bottlenecks
+
+Estimate impact only.
+
+==========================================================
+TECHNICAL DEBT AUDIT
+==========================================================
+
+Locate
+
+TODO
+
+FIXME
+
+HACK
+
+Temporary Code
+
+Prototype Code
+
+Experimental Modules
+
+Legacy Modules
+
+Duplicate Logic
+
+Dead Code
+
+Unused Files
+
+Unused APIs
+
+Unused Widgets
+
+Unused Models
+
+Half-finished Features
+
+Mock Implementations
+
+Classify
+
+LOW
+
+MEDIUM
+
+HIGH
+
+CRITICAL
+
+==========================================================
+DEPENDENCY RISK ANALYSIS
+==========================================================
+
+Inspect all dependencies.
+
+Identify
+
+Deprecated Packages
+
+Abandoned Packages
+
+Duplicate Packages
+
+Version Conflicts
+
+Security Risks
+
+Unused Packages
+
+Transitive Risks
+
+Breaking Upgrade Risks
+
+Document only.
+
+==========================================================
+CODE QUALITY AUDIT
+==========================================================
+
+Evaluate
+
+Naming
+
+Readability
+
+Consistency
+
+Layer Separation
+
+Single Responsibility
+
+Open/Closed Principle
+
+Dependency Inversion
+
+Interface Segregation
+
+Code Duplication
+
+Maintainability
+
+Scalability
+
+Extensibility
+
+Generate a quality score for every major module.
+
+==========================================================
+PRODUCTION READINESS
+==========================================================
+
+Evaluate whether the project is production ready.
+
+Categories
+
+Architecture
+
+Flutter
+
+Backend
+
+Database
+
+Socket
+
+Security
+
+Gameplay
+
+Testing
+
+Documentation
+
+Deployment
+
+Monitoring
+
+Observability
+
+CI/CD
+
+Rate each category
+
+0–100
+
+Provide justification.
+
+==========================================================
+AI SAFE REFACTOR CONSTRAINTS
+==========================================================
+
+Generate mandatory constraints for all future AI-assisted development.
+
+Rules
+
+Never change gameplay without rulebook evidence.
+
+Never remove working code without evidence.
+
+Never replace architecture without approval.
+
+Never introduce assumptions.
+
+Never silently rename APIs.
+
+Never silently rename socket events.
+
+Never silently alter database schema.
+
+Never refactor beyond approved scope.
+
+Every future implementation must reference PROJECT_AUDIT.md.
+
+==========================================================
+CHECKPOINT
+==========================================================
+
+Verify
+
+✓ No code modified
+
+✓ No files changed
+
+✓ No assumptions made
+
+✓ Rulebook remained highest authority
+
+✓ Read-only mode preserved
+
+Continue only if all checks pass.
+
+==========================================================
+FINAL AUDIT DELIVERABLES
+==========================================================
+
+After completing the audit, generate ONE comprehensive report.
+
+File Name
+
+PROJECT_AUDIT.md
+
+This report becomes the official technical reference for all future development.
+
+Do not create additional implementation documents.
+
+==========================================================
+EXECUTIVE SUMMARY
+==========================================================
+
+Provide
+
+Project Overview
+
+Architecture Overview
+
+Technology Stack
+
+Repository Size
+
+Module Count
+
+Flutter Health
+
+Backend Health
+
+Database Health
+
+Socket Health
+
+Gameplay Health
+
+Testing Health
+
+Security Health
+
+Documentation Health
+
+Production Readiness
+
+Overall Project Score
+
+==========================================================
+REPOSITORY INVENTORY
+==========================================================
+
+Include
+
+Directory Tree
+
+File Inventory
+
+Module Inventory
+
+Technology Inventory
+
+Configuration Inventory
+
+Documentation Inventory
+
+Dependency Inventory
+
+==========================================================
+TRACEABILITY REPORT

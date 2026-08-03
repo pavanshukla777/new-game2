@@ -1,0 +1,219 @@
+VOLUME 3 v1.0
+PART 9 OF 15
+
+TITLE:
+IMPLEMENTATION ROADMAP & EXECUTION ORDER
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+This document defines the official execution sequence for future implementation.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Convert the approved Migration Plan into a structured implementation roadmap.
+
+The roadmap defines execution order only.
+
+It does not generate code.
+
+------------------------------------------------------------
+
+EXECUTION PRINCIPLE
+
+Implementation shall proceed strictly in dependency order.
+
+Never implement a higher-level feature before its required foundation exists.
+
+Every completed phase becomes the baseline for the next phase.
+
+------------------------------------------------------------
+
+EXECUTION PHASES
+
+Phase 1
+
+Foundation
+
+Includes:
+
+• Shared Models
+
+• Core Types
+
+• Game State
+
+• Server Authority
+
+• Validation Framework
+
+• Repository Interfaces
+
+------------------------------------------------------------
+
+Phase 2
+
+Core Gameplay
+
+Includes:
+
+• Card Distribution
+
+• Seating
+
+• Team Logic
+
+• Bidding
+
+• Trump
+
+• Turn Engine
+
+• Move Validation
+
+• Face-down Logic
+
+• Trick Resolution
+
+• Round Engine
+
+• Scoring
+
+• Series Engine
+
+------------------------------------------------------------
+
+Phase 3
+
+Multiplayer
+
+Includes:
+
+• Room Management
+
+• Socket Events
+
+• Player Presence
+
+• Admin System
+
+• Reconnection
+
+• AI Takeover
+
+• Voice
+
+------------------------------------------------------------
+
+Phase 4
+
+Presentation
+
+Includes:
+
+• Flutter UI
+
+• Match Panels
+
+• Scoreboard
+
+• Notifications
+
+• Animations
+
+• Accessibility
+
+------------------------------------------------------------
+
+EXECUTION RULES
+
+Every implementation task must reference:
+
+Migration ID
+
+↓
+
+Gap ID
+
+↓
+
+Rulebook Section
+
+↓
+
+Repository Module
+
+↓
+
+Affected Files
+
+No implementation may skip this chain.
+
+------------------------------------------------------------
+
+COMPLETION CRITERIA
+
+A Phase is complete only when:
+
+• All assigned Migration Items are complete.
+
+• All related Gaps are resolved.
+
+• Rulebook compliance is verified.
+
+• Existing functionality remains operational.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT generate code.
+
+Do NOT modify repository.
+
+Do NOT merge phases.
+
+Do NOT execute implementation.
+
+Only prepare the official implementation roadmap.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+The approved execution order becomes mandatory for all future development.
+
+Implementation must always follow:
+
+Rulebook
+
+↓
+
+Gap Register
+
+↓
+
+Migration Plan
+
+↓
+
+Execution Roadmap
+
+↓
+
+Source Code
+
+END OF PART 9
+
+WAIT FOR PART 10.
+
+DO NOT IMPLEMENT.
+
+ONLY PLAN AND DOCUMENT.

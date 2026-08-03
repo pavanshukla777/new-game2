@@ -1,0 +1,310 @@
+# VOLUME 2 – PART 4/12
+## GAMEPLAY ENTITIES & TERMINOLOGY
+### Official Chhakri Rulebook Specification
+### Based ONLY on RULE-001 to RULE-030
+
+------------------------------------------------------------
+OBJECTIVE
+------------------------------------------------------------
+
+This document defines every official gameplay entity and terminology used throughout the Chhakri Rulebook.
+
+These definitions are authoritative.
+
+No alternative terminology may be introduced.
+
+------------------------------------------------------------
+OFFICIAL MATCH HIERARCHY
+------------------------------------------------------------
+
+Series
+
+↓
+
+Multiple Rounds
+
+↓
+
+Each Round contains exactly 8 Tricks
+
+↓
+
+Each Trick contains one legal card from every active player.
+
+------------------------------------------------------------
+OFFICIAL GAME ENTITIES
+------------------------------------------------------------
+
+Series
+
+A complete match consisting of multiple Rounds.
+
+Series ends only when:
+
+• A Team reaches +52 or higher.
+
+OR
+
+• Bidder completes a Perfect 8/8 Bid.
+
+------------------------------------------------------------
+
+Round
+
+One complete deal of cards.
+
+Every Round contains:
+
+• Card Distribution
+
+• Bidding
+
+• Trump Selection
+
+• 8 Tricks
+
+• Round Result
+
+• Score Update
+
+------------------------------------------------------------
+
+Trick
+
+One complete cycle where every active player plays exactly one legal card.
+
+After every player has played:
+
+• Trick Winner is determined.
+
+• Cards are collected.
+
+• Winner leads the next Trick.
+
+------------------------------------------------------------
+
+Card
+
+A playing card owned by exactly one player.
+
+A card can exist in only one zone at a time.
+
+------------------------------------------------------------
+
+Team
+
+A permanent group of players.
+
+6 Players
+
+Team A:
+1,3,5
+
+Team B:
+2,4,6
+
+4 Players
+
+Team A:
+1,3
+
+Team B:
+2,4
+
+------------------------------------------------------------
+PLAYER CARD ZONES
+------------------------------------------------------------
+
+Each player owns exactly three card zones.
+
+1.
+
+Secret Hand Cards
+
+Quantity:
+
+2
+
+Visibility:
+
+Owner Only
+
+------------------------------------------------------------
+
+2.
+
+Face-down Cards
+
+Quantity:
+
+3
+
+Visibility:
+
+Hidden
+
+Opened only according to Rulebook.
+
+------------------------------------------------------------
+
+3.
+
+Face-up Cards
+
+Quantity:
+
+3
+
+Visibility:
+
+Visible to everyone.
+
+------------------------------------------------------------
+
+Total Cards Per Player
+
+2
+
++
+
+3
+
++
+
+3
+
+=
+
+8 Cards
+
+------------------------------------------------------------
+OFFICIAL GAMEPLAY TERMS
+------------------------------------------------------------
+
+Dealer
+
+Player authorized to distribute cards.
+
+------------------------------------------------------------
+
+Bid
+
+Target number of Tricks declared by Bidder.
+
+Allowed values:
+
+5
+
+6
+
+7
+
+8
+
+------------------------------------------------------------
+
+Primary Bid
+
+Mandatory opening Bid.
+
+Always:
+
+5
+
+------------------------------------------------------------
+
+Primary Trump
+
+Trump selected during the Primary Bid.
+
+------------------------------------------------------------
+
+Final Bid
+
+Highest Bid after two bidding rounds.
+
+------------------------------------------------------------
+
+Final Trump
+
+Official Trump Suit used for the entire Round.
+
+------------------------------------------------------------
+
+Lead
+
+First card played in a Trick.
+
+------------------------------------------------------------
+
+Lead Suit
+
+Suit of the Lead Card.
+
+------------------------------------------------------------
+
+Trump
+
+Official winning Suit selected after bidding.
+
+Trump is optional.
+
+Trump is never mandatory.
+
+------------------------------------------------------------
+
+Trick Winner
+
+Player who legally wins the current Trick according to the Rulebook.
+
+------------------------------------------------------------
+
+Round Winner
+
+Team that successfully satisfies Rulebook Round Winning conditions.
+
+Not necessarily the Team with more Tricks.
+
+------------------------------------------------------------
+
+Series Winner
+
+Team that wins the complete Series.
+
+------------------------------------------------------------
+TERMINOLOGY LOCK
+------------------------------------------------------------
+
+These names are official.
+
+Implementation must use the same terminology across:
+
+• Backend
+
+• Database
+
+• Socket Events
+
+• Flutter
+
+• Documentation
+
+Do not replace these names with alternative wording.
+
+------------------------------------------------------------
+ZERO ASSUMPTION POLICY
+------------------------------------------------------------
+
+No gameplay terminology may be invented.
+
+If new terminology is required,
+
+the Rulebook must be updated first.
+
+------------------------------------------------------------
+
+END OF PART 4/12
+
+WAIT FOR PART 5
+
+DO NOT IMPLEMENT YET

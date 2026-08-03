@@ -1,0 +1,82 @@
+CRITICAL IMPLEMENTATION TASK
+VERSION 1.0 RELEASE BLOCKER
+
+Do NOT perform another repository-wide audit.
+
+Do NOT reread unrelated files.
+
+Do NOT verify completed work.
+
+Use the evidence from the previous verification and go directly to implementation.
+
+The only Version 1.0 code blocker to solve is:
+
+6-PLAYER GAMEPLAY UI
+
+The previous verification already proved that:
+
+flutter_client/lib/screens/game_screen.dart
+
+contains a placeholder for every game where seats.length != 4.
+
+Replace that placeholder with a complete production-quality 6-player gameplay layout.
+
+Requirements
+
+• Keep ALL existing game rules exactly as they are.
+• Do NOT modify backend.
+• Do NOT modify socket protocol.
+• Do NOT modify game engine.
+• Do NOT modify scoring.
+• Do NOT change bidding.
+• Do NOT change trump logic.
+• Do NOT change turn order.
+
+Implement ONLY the Flutter presentation layer.
+
+Requirements
+
+• Render all 6 players simultaneously.
+• Every seat must always be visible.
+• Correct table orientation.
+• Current player highlighted.
+• Partner/opponent positions remain correct.
+• Card animations continue working.
+• Played cards appear in correct positions.
+• Turn indicators remain correct.
+• Winner highlight remains correct.
+• Existing timers continue working.
+• Existing reconnect logic continues working.
+• Existing responsive layout continues working.
+
+The implementation must automatically support:
+
+gs.seats.length == 4
+AND
+gs.seats.length == 6
+
+without breaking the existing 4-player layout.
+
+Do NOT duplicate game logic.
+
+Reuse existing widgets wherever possible.
+
+Modify the minimum number of files.
+
+After implementation:
+
+Run only the tests required to ensure this change does not break existing functionality.
+
+Do NOT run another full production audit.
+
+Final report only:
+
+1. Files modified
+2. What changed
+3. Targeted tests executed
+4. Confirmation that both 4-player and 6-player gameplay now render correctly
+5. Remaining Version 1.0 code blockers
+
+If no Version 1.0 gameplay blockers remain, explicitly state:
+
+VERSION 1.0 GAMEPLAY IS COMPLETE

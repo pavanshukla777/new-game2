@@ -1,0 +1,195 @@
+VOLUME 3 v1.0
+PART 10 OF 15
+
+TITLE:
+VERIFICATION & ACCEPTANCE FRAMEWORK
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+This document defines how future implementations will be verified against the Official Rulebook.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Every completed implementation must be verified before it is accepted.
+
+Verification ensures repository behavior matches the Official Rulebook.
+
+Verification is mandatory.
+
+------------------------------------------------------------
+
+VERIFICATION PRINCIPLE
+
+Every implemented Migration Item shall be verified using repository evidence.
+
+Acceptance is based only on observable behavior.
+
+Never on assumptions.
+
+------------------------------------------------------------
+
+VERIFICATION LEVELS
+
+Level 1
+
+Compilation
+
+• Project builds successfully.
+
+• No compilation failures.
+
+------------------------------------------------------------
+
+Level 2
+
+Unit Verification
+
+Each modified module passes its own tests.
+
+------------------------------------------------------------
+
+Level 3
+
+Integration Verification
+
+Communication between modules operates correctly.
+
+Examples:
+
+Game Engine
+
+Database
+
+Socket Layer
+
+Flutter
+
+Backend
+
+------------------------------------------------------------
+
+Level 4
+
+Rulebook Verification
+
+Repository behavior matches the Official Rulebook.
+
+Gameplay must follow the Rulebook exactly.
+
+------------------------------------------------------------
+
+ACCEPTANCE CRITERIA
+
+Every Migration Item must satisfy:
+
+✓ Related Gap resolved
+
+✓ Rulebook compliance verified
+
+✓ Repository builds successfully
+
+✓ Existing functionality preserved
+
+✓ No regression detected
+
+------------------------------------------------------------
+
+OUTPUT FORMAT
+
+For every Migration Item record:
+
+Migration ID
+
+Gap ID
+
+Verification Status
+
+Verification Evidence
+
+Acceptance Status
+
+Only use:
+
+PASS
+
+FAIL
+
+BLOCKED
+
+------------------------------------------------------------
+
+REGRESSION POLICY
+
+Every completed implementation must confirm:
+
+No previously working feature has been unintentionally broken.
+
+Regression testing is mandatory.
+
+------------------------------------------------------------
+
+TRACEABILITY
+
+Every accepted implementation must maintain complete traceability:
+
+Rulebook Section
+
+↓
+
+Gap ID
+
+↓
+
+Migration ID
+
+↓
+
+Repository Module
+
+↓
+
+Affected Files
+
+↓
+
+Verification Result
+
+↓
+
+Acceptance
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT implement fixes.
+
+Do NOT modify repository.
+
+Do NOT bypass verification.
+
+Do NOT accept incomplete work.
+
+Verification always occurs after implementation.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+No implementation is considered complete until it has successfully passed every required verification level.
+
+END OF PART 10
+
+WAIT FOR PART 11.
+
+DO NOT IMPLEMENT.
+
+ONLY VERIFY AND DOCUMENT.

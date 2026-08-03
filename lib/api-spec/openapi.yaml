@@ -1,0 +1,685 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: |
+    Bundelkhandi Chhakri — REST API specification.
+    Real-time game events are handled via Socket.IO (not REST).
+    See docs/MULTIPLAYER_DESIGN.md for the Socket.IO event protocol.
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health check
+  - name: auth
+    description: Authentication — register, login, guest, refresh, logout
+  - name: users
+    description: User profiles and leaderboard
+  - name: rooms
+    description: Game room (lobby) management
+  - name: games
+    description: Game session history and replay
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+paths:
+  # ---------- Health ----------
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  # ---------- Auth ----------
+  /auth/register:
+    post:
+      operationId: register
+      tags: [auth]
+      summary: Create a new account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        "201":
+          description: Account created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "409":
+          description: Username or email already taken
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/login:
+    post:
+      operationId: login
+      tags: [auth]
+      summary: Login with email + password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/guest:
+    post:
+      operationId: guestLogin
+      tags: [auth]
+      summary: Create an ephemeral guest session
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuestLoginRequest"
+      responses:
+        "200":
+          description: Guest session created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+
+  /auth/refresh:
+    post:
+      operationId: refreshToken
+      tags: [auth]
+      summary: Exchange refresh token for new JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RefreshRequest"
+      responses:
+        "200":
+          description: New tokens issued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Refresh token invalid or expired
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/logout:
+    post:
+      operationId: logout
+      tags: [auth]
+      summary: Revoke current refresh token
+      security:
+        - bearerAuth: []
+      responses:
+        "204":
+          description: Logged out
+
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get the current authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUser"
+        "401":
+          description: Not authenticated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ---------- Users ----------
+  /users/{id}:
+    get:
+      operationId: getUserById
+      tags: [users]
+      summary: Get a user's public profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUser"
+        "404":
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /users/me:
+    put:
+      operationId: updateMe
+      tags: [users]
+      summary: Update own profile (display name, avatar)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProfileRequest"
+      responses:
+        "200":
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUser"
+
+  /users/leaderboard:
+    get:
+      operationId: getLeaderboard
+      tags: [users]
+      summary: Top players ranked by ELO rating
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+      responses:
+        "200":
+          description: Leaderboard page
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaderboardResponse"
+
+  # ---------- Rooms ----------
+  /rooms:
+    get:
+      operationId: listRooms
+      tags: [rooms]
+      summary: List open rooms (excludes private rooms without password)
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: gameMode
+          in: query
+          schema:
+            type: string
+            enum: [standard, tournament, practice]
+      responses:
+        "200":
+          description: List of rooms
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomsListResponse"
+
+    post:
+      operationId: createRoom
+      tags: [rooms]
+      summary: Create a new room (also done via Socket.IO lobby:create_room)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRoomRequest"
+      responses:
+        "201":
+          description: Room created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomDetail"
+
+  /rooms/{id}:
+    get:
+      operationId: getRoomById
+      tags: [rooms]
+      summary: Get room details and current players
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Room detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomDetail"
+        "404":
+          description: Room not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ---------- Games ----------
+  /games/history:
+    get:
+      operationId: getGameHistory
+      tags: [games]
+      summary: Authenticated user's game history (paginated)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Game history
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameHistoryResponse"
+
+  /games/{id}:
+    get:
+      operationId: getGameById
+      tags: [games]
+      summary: Get a game summary (public, no hidden hands)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Game summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameSummary"
+        "404":
+          description: Game not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+# ---------------------------------------------------------------------------
+# Components
+# ---------------------------------------------------------------------------
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    # --- Health ---
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required: [status]
+
+    # --- Error ---
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+      required: [error]
+
+    # --- Auth ---
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          minLength: 3
+          maxLength: 24
+          pattern: '^[a-zA-Z0-9_]+$'
+        displayName:
+          type: string
+          minLength: 2
+          maxLength: 32
+        email:
+          type: string
+        password:
+          type: string
+          minLength: 8
+      required: [username, displayName, email, password]
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required: [email, password]
+
+    GuestLoginRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+          minLength: 2
+          maxLength: 32
+
+    RefreshRequest:
+      type: object
+      properties:
+        refreshToken:
+          type: string
+      required: [refreshToken]
+
+    AuthResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          description: Short-lived JWT (15 min)
+        refreshToken:
+          type: string
+          description: Long-lived refresh token (30 days)
+        user:
+          $ref: "#/components/schemas/PublicUser"
+      required: [accessToken, refreshToken, user]
+
+    # --- Users ---
+    PublicUser:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        displayName:
+          type: string
+        avatarUrl:
+          type: string
+          nullable: true
+        eloRating:
+          type: integer
+        gamesPlayed:
+          type: integer
+        gamesWon:
+          type: integer
+        isGuest:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+      required: [id, username, displayName, eloRating, gamesPlayed, gamesWon, isGuest, createdAt]
+
+    UpdateProfileRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+          minLength: 2
+          maxLength: 32
+        avatarUrl:
+          type: string
+          nullable: true
+
+    LeaderboardResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicUser"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+      required: [users, total, page, pageSize]
+
+    # --- Rooms ---
+    RoomSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+          minLength: 6
+          maxLength: 6
+        name:
+          type: string
+        hostUserId:
+          type: string
+        targetScore:
+          type: integer
+          # [MIG-019] [GAP-039] [MIG-013] [GAP-032] Rulebook: series ends at +52 only.
+          # Old value: enum: [300, 500, 750] — replaced by the single Rulebook value.
+          enum: [52]
+        gameMode:
+          type: string
+          enum: [standard, tournament, practice]
+        isPrivate:
+          type: boolean
+        status:
+          type: string
+          enum: [waiting, in_game, finished]
+        playerCount:
+          type: integer
+          minimum: 1
+          # [MIG-019] [GAP-039] [MIG-008] [GAP-009] Rulebook: 4 or 6 players supported.
+          maximum: 6
+        maxPlayers:
+          type: integer
+          # [MIG-019] [GAP-039] Rulebook: valid player counts are 4 or 6.
+          enum: [4, 6]
+          default: 4
+      required: [id, code, name, hostUserId, targetScore, gameMode, isPrivate, status, playerCount, maxPlayers]
+
+    RoomPlayer:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/PublicUser"
+        seat:
+          type: integer
+          minimum: 0
+          # [MIG-019] [GAP-039] [MIG-006/007] [GAP-004/005] Rulebook: 6-player requires seats 0–5.
+          maximum: 5
+        isReady:
+          type: boolean
+        isAi:
+          type: boolean
+      required: [user, seat, isReady, isAi]
+
+    RoomDetail:
+      allOf:
+        - $ref: "#/components/schemas/RoomSummary"
+        - type: object
+          properties:
+            players:
+              type: array
+              items:
+                $ref: "#/components/schemas/RoomPlayer"
+          required: [players]
+
+    CreateRoomRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 40
+        targetScore:
+          type: integer
+          # [MIG-019] [GAP-039] [MIG-014] [GAP-035] Rulebook: only 52 is valid.
+          # Old value: enum: [300, 500, 750], default: 500
+          enum: [52]
+          default: 52
+        gameMode:
+          type: string
+          enum: [standard, practice]
+          default: standard
+        isPrivate:
+          type: boolean
+          default: false
+        password:
+          type: string
+          nullable: true
+      required: [name]
+
+    RoomsListResponse:
+      type: object
+      properties:
+        rooms:
+          type: array
+          items:
+            $ref: "#/components/schemas/RoomSummary"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+      required: [rooms, total, page, pageSize]
+
+    # --- Games ---
+    GamePlayerSummary:
+      type: object
+      properties:
+        user:
+          $ref: "#/components/schemas/PublicUser"
+          nullable: true
+        seat:
+          type: integer
+        team:
+          type: integer
+          enum: [0, 1]
+        isAi:
+          type: boolean
+        aiDifficulty:
+          type: string
+          nullable: true
+        tricksWon:
+          type: integer
+        pointsCaptured:
+          type: integer
+      required: [seat, team, isAi, tricksWon, pointsCaptured]
+
+    GameSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum: [active, completed, abandoned]
+        gameMode:
+          type: string
+        targetScore:
+          type: integer
+        winningTeam:
+          type: integer
+          nullable: true
+        team0FinalScore:
+          type: integer
+          nullable: true
+        team1FinalScore:
+          type: integer
+          nullable: true
+        totalRounds:
+          type: integer
+        players:
+          type: array
+          items:
+            $ref: "#/components/schemas/GamePlayerSummary"
+        startedAt:
+          type: string
+          format: date-time
+        endedAt:
+          type: string
+          format: date-time
+          nullable: true
+      required: [id, status, gameMode, targetScore, totalRounds, players, startedAt]
+
+    GameHistoryResponse:
+      type: object
+      properties:
+        games:
+          type: array
+          items:
+            $ref: "#/components/schemas/GameSummary"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+      required: [games, total, page, pageSize]

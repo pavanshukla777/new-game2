@@ -1,0 +1,116 @@
+VOLUME 6 — PART 5
+ARCHITECT EDITION
+SECONDARY (FINAL) BIDDING ENGINE
+
+IMPORTANT
+
+Read this prompt completely before writing any code.
+
+First audit the existing implementation to identify what already exists and what is missing.
+
+Do NOT duplicate logic.
+
+Reuse existing engine, socket handlers, state models, timers, validation chain, snapshots, reconnect system, and tests wherever possible.
+
+Implement ONLY the work described below.
+
+----------------------------------------
+OBJECTIVE
+----------------------------------------
+
+Implement the complete Secondary (Final) Bidding phase.
+
+This phase starts immediately after Primary Trump Selection completes.
+
+Players continue bidding according to the official rulebook until the final highest bidder is determined.
+
+----------------------------------------
+IMPLEMENT
+----------------------------------------
+
+1. Transition from Primary Trump Selection → Secondary Bidding.
+
+2. Correct turn order.
+
+3. Secondary bidding rules.
+
+4. Valid bid validation.
+
+5. Pass handling.
+
+6. Highest bidder tracking.
+
+7. End-of-bidding detection.
+
+8. Winner determination.
+
+9. Timer integration.
+
+10. Socket synchronization.
+
+11. Reconnect support.
+
+12. Snapshot serialization/restoration.
+
+13. Client state updates.
+
+14. Per-player validActions generation.
+
+15. Complete backend unit tests.
+
+16. Complete scenario/integration tests.
+
+----------------------------------------
+REQUIRED TEST COVERAGE
+----------------------------------------
+
+Include comprehensive tests for:
+
+• Normal secondary bidding
+• Valid bids
+• Invalid bids
+• Pass logic
+• Consecutive passes
+• Winning bidder
+• Turn rotation
+• Duplicate requests
+• Out-of-turn actions
+• Race conditions
+• Timer expiry
+• Disconnect/reconnect
+• Snapshot restoration
+• Client synchronization
+• State immutability
+
+All existing tests must continue passing.
+
+----------------------------------------
+STRICTLY DO NOT IMPLEMENT
+----------------------------------------
+
+DO NOT implement:
+
+• Final Trump Selection
+• Trick play
+• Card playing
+• Turn engine for gameplay
+• Trick winner calculation
+• Round scoring
+• Match scoring
+• Game completion
+• UI polishing
+• Flutter gameplay widgets
+• Any unrelated refactoring
+
+Only implement Secondary (Final) Bidding.
+
+Maintain backward compatibility.
+
+Finish with a completion report including:
+
+• Files modified
+• Files added
+• Tests added
+• Total test count
+• All tests passing
+• Any bugs discovered/fixed

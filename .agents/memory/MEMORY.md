@@ -1,0 +1,3 @@
+- [Chhakri project foundation](chhakri-foundation.md) — Phase 0 decisions: Socket.IO setup, Zod codegen pitfall, auth stub pattern, Flutter location
+- [Chhakri release blockers](chhakri-release-blockers.md) — Three RC blockers found and fixed in Vol 7 Part 3; deploy guidance included
+- [Android APK build in Nix/Replit](android-build-nix.md) — Full workspace SDK setup, quota workarounds, JVM SIGBUS fix, Gradle init script, NDK/CMake paths

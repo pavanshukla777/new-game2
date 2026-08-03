@@ -1,0 +1,220 @@
+VOLUME 2 v2.0
+PART 7 OF 12
+
+TITLE:
+TRICK RESOLUTION, SCORING FLOW & SERIES ENGINE
+
+READ ONLY.
+
+Do not compare with repository.
+
+Do not perform implementation analysis.
+
+Only absorb the official Rulebook.
+
+------------------------------------------------------------
+
+OFFICIAL TRICK RESOLUTION
+
+A Trick becomes complete only after every active player has played exactly one legal card.
+
+6 Players:
+Exactly 6 cards.
+
+4 Players:
+Exactly 4 cards.
+
+No Trick may end early.
+
+------------------------------------------------------------
+
+TRICK WINNER
+
+If no Trump exists:
+
+Highest card of Lead Suit wins.
+
+If one or more Trump cards exist:
+
+Highest Trump wins.
+
+Lead Suit cannot defeat any Trump.
+
+Overcut is never mandatory.
+
+Trump is always optional.
+
+------------------------------------------------------------
+
+POST TRICK PROCESS
+
+Immediately after Trick Winner is determined:
+
+Server shall:
+
+• Lock Trick Result
+• Store played cards
+• Increase Winner Team Trick Count
+• Increase Winner Player Trick Count
+• Move all Trick cards to Winner Collection
+• Remove cards from active play
+• Update Live Progress Panel
+• Make Winner the next Lead Player
+
+Only after all updates are committed:
+
+Next Trick begins.
+
+------------------------------------------------------------
+
+ROUND COMPLETION
+
+One Round always contains exactly:
+
+8 Tricks.
+
+Round ends only after Trick 8 finishes.
+
+No early Round completion.
+
+------------------------------------------------------------
+
+TARGET VALIDATION
+
+Bidder Target:
+
+Equals Final Bid.
+
+Examples:
+
+Bid 5 → Target 5
+
+Bid 6 → Target 6
+
+Bid 7 → Target 7
+
+Bid 8 → Target 8
+
+Opponent Target:
+
+Bid 5 → 4
+
+Bid 6 → 3
+
+Bid 7 → 2
+
+Bid 8 → 1
+
+------------------------------------------------------------
+
+ROUND WINNER
+
+Round Winner is determined ONLY by target completion.
+
+Never by total tricks alone.
+
+Example:
+
+Bid Team = 5 tricks after bidding 6.
+
+Opponent = 3 tricks.
+
+Although 5 > 3,
+
+Bid Team failed.
+
+Opponent reached target.
+
+Opponent wins Round.
+
+------------------------------------------------------------
+
+SCORING
+
+If Bid Success:
+
+Bid Team +Bid
+
+Opponent -Bid
+
+If Bid Failure:
+
+Bid Team -(2×Bid)
+
+Opponent +(2×Bid)
+
+Score always remains Zero Sum.
+
+------------------------------------------------------------
+
+SERIES ENGINE
+
+Series ends immediately when:
+
+Either Team reaches +52.
+
+OR
+
+A Bid Team successfully completes an 8 Bid by winning all 8 Tricks.
+
+This is an Instant Series Victory.
+
+Series immediately ends.
+
+Fresh Series begins.
+
+------------------------------------------------------------
+
+NEXT ROUND
+
+If Series continues:
+
+Team currently behind in Match Score becomes Dealer Team.
+
+Distribution order never changes:
+
+2 Secret
+
+↓
+
+Primary Bid
+
+↓
+
+3 Face-down
+
+↓
+
+3 Face-up
+
+↓
+
+Bidding
+
+------------------------------------------------------------
+
+SERVER AUTHORITY
+
+Only Server may:
+
+Declare Trick Winner.
+
+Declare Round Winner.
+
+Update Score.
+
+Declare Series Winner.
+
+Start Next Round.
+
+Start New Series.
+
+These decisions are immutable.
+
+END OF PART 7
+
+WAIT FOR PART 8.
+
+DO NOT IMPLEMENT.
+
+ONLY MEMORIZE.

@@ -1,0 +1,134 @@
+VOLUME 4 — PART 6
+IMPLEMENTATION PHASE
+BIDDING FOUNDATION
+
+AUTHORITATIVE SOURCES
+
+1. Volume 2 Official Rulebook
+2. Volume 3 Repository Audit
+3. GAP_REGISTER.md
+4. MIGRATION_PLAN.md
+5. Volume 4 Parts 1–5
+
+MANDATORY RULES
+
+• Continue directly from the current repository state.
+• Do not repeat work completed in Parts 1–5.
+• Preserve backward compatibility.
+• Existing functionality must continue working.
+• Existing passing tests must remain green.
+• Do not modify any finalized Rulebook behavior.
+• No assumptions beyond the Rulebook.
+
+OBJECTIVE
+
+Implement only the complete infrastructure required for the bidding system.
+
+This part introduces bidding architecture only.
+
+Do NOT implement:
+
+• Trump gameplay
+• Trick winner calculation
+• Scoring
+• Series logic
+• End-of-round settlement
+
+These belong to later Parts.
+
+IMPLEMENTATION SCOPE
+
+Complete every remaining migration related to bidding infrastructure, including:
+
+• Bid state models
+• Bid lifecycle
+• Bid validation
+• Bid ownership
+• Bid turn order
+• Pass handling
+• Highest bid tracking
+• Bid completion detection
+• Bid serialization
+• Bid persistence
+• Bid events
+• Bid synchronization
+• Bid API
+• Bid socket handlers
+• Bid tests
+
+ENGINE REQUIREMENTS
+
+Implement a deterministic bidding state machine.
+
+The engine must support:
+
+• Waiting for bids
+• Valid bid
+• Pass
+• Next bidder
+• Highest bid updates
+• Bid completion
+• Transition to trump-selection phase
+
+No Rulebook shortcuts are permitted.
+
+SERVER REQUIREMENTS
+
+Update GameService to synchronize bidding state between engine, database and sockets.
+
+All emitted snapshots must remain deterministic.
+
+DATABASE
+
+Persist every bidding transition.
+
+Snapshots must remain recoverable after reconnect.
+
+CLIENT
+
+Expose only public bidding information allowed by the Rulebook.
+
+Never leak hidden information.
+
+TEST REQUIREMENTS
+
+Expand the existing Vitest suite.
+
+Cover:
+
+• legal bids
+• illegal bids
+• pass validation
+• highest bid updates
+• bidding completion
+• serialization
+• reconnect
+• persistence
+• socket synchronization
+• API validation
+
+Existing tests must continue passing.
+
+VERIFICATION
+
+Before completion verify:
+
+• Engine builds successfully.
+• API builds successfully.
+• Database typecheck passes.
+• No regressions.
+• All previous tests remain green.
+• All new bidding tests pass.
+
+OUTPUT
+
+At completion provide:
+
+1. Files modified
+2. Files created
+3. Migrations completed
+4. Tests added
+5. Total passing tests
+6. Remaining migrations deferred to Part 7 only
+
+Do not implement any functionality outside this scope.

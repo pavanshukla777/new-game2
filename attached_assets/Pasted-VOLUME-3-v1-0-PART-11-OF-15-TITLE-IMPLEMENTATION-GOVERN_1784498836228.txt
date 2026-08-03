@@ -1,0 +1,194 @@
+VOLUME 3 v1.0
+PART 11 OF 15
+
+TITLE:
+IMPLEMENTATION GOVERNANCE & CHANGE CONTROL
+
+READ ONLY.
+
+Do not modify code.
+
+Do not refactor.
+
+Do not implement.
+
+This document establishes the governance rules that every future implementation must follow.
+
+------------------------------------------------------------
+
+OBJECTIVE
+
+Ensure every repository change remains fully traceable, auditable and compliant with the Official Rulebook.
+
+No undocumented implementation is permitted.
+
+------------------------------------------------------------
+
+CHANGE CONTROL PRINCIPLE
+
+Every implementation task must originate from an approved Migration Item.
+
+No direct coding is permitted without documented authorization through the migration workflow.
+
+------------------------------------------------------------
+
+IMPLEMENTATION CHAIN
+
+Every source code modification shall follow this sequence:
+
+Official Rulebook
+
+↓
+
+Rulebook Section
+
+↓
+
+Gap ID
+
+↓
+
+Migration ID
+
+↓
+
+Repository Module
+
+↓
+
+Affected Files
+
+↓
+
+Implementation
+
+↓
+
+Verification
+
+↓
+
+Acceptance
+
+No step may be skipped.
+
+------------------------------------------------------------
+
+CHANGE LOG
+
+Every completed implementation shall record:
+
+Change ID
+
+Migration ID
+
+Gap ID
+
+Repository Module
+
+Affected Files
+
+Implementation Date
+
+Verification Status
+
+Acceptance Status
+
+No implementation may exist without a corresponding Change Log entry.
+
+------------------------------------------------------------
+
+APPROVED SOURCES
+
+Gameplay decisions may originate ONLY from:
+
+• Official Rulebook
+• Approved Migration Plan
+• Verified Gap Register
+
+Repository code itself must never become the source of gameplay rules.
+
+------------------------------------------------------------
+
+PROHIBITED ACTIONS
+
+Do NOT:
+
+• Invent gameplay rules
+• Override the Official Rulebook
+• Implement undocumented behavior
+• Skip dependency order
+• Merge unrelated changes
+• Modify completed Rulebook definitions
+
+------------------------------------------------------------
+
+AUDIT REQUIREMENTS
+
+Every implementation must remain fully auditable.
+
+At any time it must be possible to trace:
+
+Source Code
+
+↓
+
+Affected Files
+
+↓
+
+Migration ID
+
+↓
+
+Gap ID
+
+↓
+
+Rulebook Section
+
+↓
+
+Official Rulebook
+
+This traceability must never be broken.
+
+------------------------------------------------------------
+
+DOCUMENTATION RULE
+
+Whenever implementation changes behavior,
+
+its documentation must be updated before the task is marked complete.
+
+Implementation and documentation must remain synchronized.
+
+------------------------------------------------------------
+
+STRICT RESTRICTIONS
+
+Do NOT implement changes.
+
+Do NOT rewrite architecture.
+
+Do NOT bypass governance.
+
+Only establish the official implementation governance framework.
+
+------------------------------------------------------------
+
+IMMUTABLE PRINCIPLE
+
+The Official Rulebook remains the permanent authority.
+
+Repository implementation may evolve.
+
+The Rulebook does not.
+
+END OF PART 11
+
+WAIT FOR PART 12.
+
+DO NOT IMPLEMENT.
+
+ONLY GOVERN AND DOCUMENT.
