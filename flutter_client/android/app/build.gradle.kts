@@ -9,6 +9,8 @@ android {
     namespace = "com.chhakri.game"
     compileSdk = flutter.compileSdkVersion
     buildToolsVersion = "35.0.0"
+    ndkVersion = "27.0.12077973"
+    ndkPath = "/home/runner/workspace/android-ndk/android-ndk-r27"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -30,6 +32,12 @@ android {
     buildTypes {
         release {
             signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }

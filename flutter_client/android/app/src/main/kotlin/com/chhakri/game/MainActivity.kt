@@ -1,4 +1,4 @@
-package com.example.chhakri
+package com.chhakri.game
 
 import io.flutter.embedding.android.FlutterActivity
 
