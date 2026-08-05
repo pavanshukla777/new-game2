@@ -58,6 +58,13 @@ class RouterNotifier extends ChangeNotifier {
       return loc == '/' ? null : '/';
     }
 
+    // Once loading completes, always navigate away from the splash screen.
+    // Without this, an unauthenticated user at '/' matches publicRoutes and
+    // neither guard below fires — the spinner runs forever.
+    if (loc == '/') {
+      return _authState.isAuthenticated ? '/lobby' : '/login';
+    }
+
     final authenticated = _authState.isAuthenticated;
     const publicRoutes = <String>{'/login', '/register', '/'};
     final onPublicRoute = publicRoutes.contains(loc);
