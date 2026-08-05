@@ -5,7 +5,7 @@ version = "1.0.0"
 id = "3B4_FFSkEVBkAeYMFRJ2e"
 
 [[services]]
-localPort = 8080
+localPort = 3001
 name = "API Server"
 paths = ["/api"]
 deploymentTarget = "vm"
@@ -26,7 +26,8 @@ NODE_ENV = "production"
 args = ["node", "--enable-source-maps", "artifacts/api-server/dist/index.mjs"]
 
 [services.production.run.env]
-PORT = "8080"
+# Use 3001 so we don't conflict with Cloud Run's pid1 which binds to PORT=8080
+PORT = "3001"
 NODE_ENV = "production"
 
 [services.production.health.startup]
