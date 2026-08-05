@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Chhakri Web"
+description = "Public-facing web entrypoint for Bundelkhandi Chhakri. Serves as the deployment anchor (gives Replit a publishable web artifact), and renders a game landing page with server health status and APK download link."
+version = "1.0.0"
+id = "artifacts/web"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22333
+
+[services.development]
+run = "pnpm --filter @workspace/web run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/web", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/web/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22333"
+BASE_PATH = "/"
