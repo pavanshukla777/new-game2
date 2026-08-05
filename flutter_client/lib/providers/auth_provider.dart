@@ -94,7 +94,27 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   // ── Session restore ────────────────────────────────────────────────────────
 
+  // Sentinel token used for sessions created without a backend server.
+  static const _kOfflineToken = 'offline_guest';
+
   Future<void> _restoreSession() async {
+    // Offline guest: restore directly from Hive — no network call needed.
+    if (_storage.accessToken == _kOfflineToken) {
+      final user = _storage.user;
+      if (user != null) {
+        state = AuthState.authenticated(
+          user: user,
+          accessToken: _kOfflineToken,
+          refreshToken: _kOfflineToken,
+        );
+        return;
+      }
+      // Corrupted offline session — clear and re-prompt.
+      await _storage.clearSession();
+      state = const AuthState.unauthenticated();
+      return;
+    }
+
     try {
       final result = await _repo.tryRestoreSession();
       if (result == null) {
@@ -204,13 +224,51 @@ class AuthNotifier extends StateNotifier<AuthState> {
       );
       return null;
     } on ApiException catch (e) {
-      state = AuthState.unauthenticated(error: e.message);
-      return e.message;
-    } catch (e) {
-      const msg = 'Unexpected error. Please try again.';
-      state = const AuthState.unauthenticated(error: msg);
-      return msg;
+      // statusCode != null → server replied with an HTTP error; surface it.
+      if (e.statusCode != null) {
+        state = AuthState.unauthenticated(error: e.message);
+        return e.message;
+      }
+      // statusCode == null → no HTTP response → server is unreachable.
+      // Fall back to an offline guest session so the app stays usable.
+      return _createOfflineGuestSession(displayName);
+    } catch (_) {
+      // Unexpected error (e.g. socket exception before Dio wraps it).
+      return _createOfflineGuestSession(displayName);
     }
+  }
+
+  /// Creates a local guest session without contacting the backend.
+  ///
+  /// Used when the server is unreachable. The session is persisted in Hive
+  /// using the [_kOfflineToken] sentinel so [_restoreSession] can restore
+  /// it on next launch without a network call.
+  Future<String?> _createOfflineGuestSession(String? displayName) async {
+    final ts = DateTime.now().millisecondsSinceEpoch;
+    final guest = AuthUser(
+      id: 'offline_$ts',
+      username: 'guest_$ts',
+      displayName:
+          (displayName != null && displayName.trim().isNotEmpty)
+              ? displayName.trim()
+              : 'Guest',
+      eloRating: 1200,
+      gamesPlayed: 0,
+      gamesWon: 0,
+      isGuest: true,
+      createdAt: DateTime.now(),
+    );
+    await _storage.saveSession(
+      accessToken: _kOfflineToken,
+      refreshToken: _kOfflineToken,
+      user: guest,
+    );
+    state = AuthState.authenticated(
+      user: guest,
+      accessToken: _kOfflineToken,
+      refreshToken: _kOfflineToken,
+    );
+    return null;
   }
 
   Future<void> logout() async {
