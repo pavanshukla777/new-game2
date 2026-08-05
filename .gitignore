@@ -47,3 +47,19 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Android / Flutter build tools — dev-only, must NOT be committed or deployed
+# These are gigantic (~6 GB combined) and would blow out the Cloud Run image layer
+android-ndk/
+android-sdk-ws/
+.gradle-home/
+.gradle-tmp/
+
+# Flutter and Gradle build output at workspace root
+build/
+
+# Flutter compiled output (APKs live in build-output/ after manual build)
+flutter_client/build-output/
+
+# Gradle build reports inside flutter_client
+flutter_client/android/build/
