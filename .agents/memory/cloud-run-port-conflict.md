@@ -24,6 +24,11 @@ Cloud Run always injects `PORT=8080` into the container. Replit's `pid1` binary 
 - Build logs end with "Created pid1 binary layer" then silence (no startup error logged — the api-server crash is invisible from build logs).
 - Retries repeat the same 15-20 min timeout pattern before final failure.
 
+## Fourth root cause (CONFIRMED): replit.nix flutter/jdk/android packages bloat nix-0 layer
+`replit.nix` had `pkgs.flutter` (9.3 GB nix store closure), `pkgs.jdk17` (141 MB), `pkgs.android-tools`. These are packaged into the nix-0 OCI layer. The layer push has a ~20-min timeout; 9.3+ GB cannot push in time → bundler retries entire push cycle in a loop.
+Fix (commit `864ed91d0`): removed all three from replit.nix via `uninstallSystemDependencies`. nix-0 layer now contains only nodejs-20 + postgresql-16 (~200-300 MB).
+**TO BUILD APK**: temporarily add `pkgs.flutter`, `pkgs.jdk17`, `pkgs.android-tools` back to replit.nix, build, then remove BEFORE publishing. See android-build-nix.md.
+
 ## Third root cause (CONFIRMED): workspace too large for Repl layer upload
 Build logs showed: build succeeds → "Pushing pid1 binary layer..." → 20-min silence → fail.
 Root cause: 57,795 files tracked in git including android-ndk (2GB), android-sdk-ws (352MB), .gradle-home (2.9GB), build/ (759MB). `git archive HEAD` = **5.9 GB**. Cloud Run bundler timed out pushing the Repl layer silently.
