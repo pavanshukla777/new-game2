@@ -24,6 +24,12 @@ Cloud Run always injects `PORT=8080` into the container. Replit's `pid1` binary 
 - Build logs end with "Created pid1 binary layer" then silence (no startup error logged — the api-server crash is invisible from build logs).
 - Retries repeat the same 15-20 min timeout pattern before final failure.
 
+## Third root cause (CONFIRMED): workspace too large for Repl layer upload
+Build logs showed: build succeeds → "Pushing pid1 binary layer..." → 20-min silence → fail.
+Root cause: 57,795 files tracked in git including android-ndk (2GB), android-sdk-ws (352MB), .gradle-home (2.9GB), build/ (759MB). `git archive HEAD` = **5.9 GB**. Cloud Run bundler timed out pushing the Repl layer silently.
+Fix (commit `<cleanup>`): `git rm -r --cached` all those dirs + add to `.gitignore`. New `git archive HEAD` = **2.89 MB**. 432 tracked files remain (actual source only).
+**Rule: never commit Android SDKs, Gradle caches, or build output to git in this repo.**
+
 ## Second root cause: DATABASE_URL not passed to subprocess
 pid1 creates the api-server subprocess with **only** the vars in `[services.production.run.env]` (PORT and NODE_ENV). DATABASE_URL and PG* vars are in the outer Cloud Run container env (injected by Replit's infra) but are **NOT** inherited by the subprocess. The old `lib/db/src/index.ts` threw at module load if DATABASE_URL was absent → crash before `listen()` → startup probe never gets 200 → 20-40 min timeout loop.
 
