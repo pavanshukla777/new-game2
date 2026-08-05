@@ -24,5 +24,9 @@ Cloud Run always injects `PORT=8080` into the container. Replit's `pid1` binary 
 - Build logs end with "Created pid1 binary layer" then silence (no startup error logged — the api-server crash is invisible from build logs).
 - Retries repeat the same 15-20 min timeout pattern before final failure.
 
-## Verified fix
-Commit `8a48b6f8`: changed `localPort` from 8080 → 3001 and `PORT` from `"8080"` → `"3001"` in `artifacts/api-server/.replit-artifact/artifact.toml`. Health check `GET /api/healthz/healthz` returns 200 on port 3001 in dev. Ready to republish.
+## Second root cause: DATABASE_URL not passed to subprocess
+pid1 creates the api-server subprocess with **only** the vars in `[services.production.run.env]` (PORT and NODE_ENV). DATABASE_URL and PG* vars are in the outer Cloud Run container env (injected by Replit's infra) but are **NOT** inherited by the subprocess. The old `lib/db/src/index.ts` threw at module load if DATABASE_URL was absent → crash before `listen()` → startup probe never gets 200 → 20-40 min timeout loop.
+
+**Fix (commit c6904d9f)**: Removed the eager throw from `lib/db/src/index.ts`. Changed `new Pool({ connectionString: process.env.DATABASE_URL })` → `new Pool()` (no args). pg reads DATABASE_URL automatically, and also reads individual PG* vars (PGHOST, PGPORT, PGUSER, PGPASSWORD, PGDATABASE) that Replit DOES inject into Cloud Run. Connection is lazy (first query), so server starts and health check passes regardless.
+
+**Proven locally**: `DATABASE_URL="" PORT=4001 NODE_ENV=production node artifacts/api-server/dist/index.mjs` → starts successfully, listens, health check 200. Previously this crashed immediately with exit code 1.
