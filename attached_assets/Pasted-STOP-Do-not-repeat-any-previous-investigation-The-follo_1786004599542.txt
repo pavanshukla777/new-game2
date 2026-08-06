@@ -1,0 +1,89 @@
+STOP.
+
+Do not repeat any previous investigation.
+
+The following issues have already been fixed and must NOT be investigated again:
+
+- PORT handling
+- DATABASE_URL
+- Android SDK / Gradle cleanup
+- Git history cleanup
+- replit.nix cleanup
+- Bundle size
+- GitHub integration
+
+The build succeeds.
+The bundle succeeds.
+The image is pushed.
+Publishing reaches "Creating Autoscale service" and then fails during Promote.
+
+This is now a runtime startup problem.
+
+Inspect ONLY the backend startup.
+
+Trace the complete startup flow:
+
+main
+→ index.ts
+→ app.ts
+→ router registration
+→ health endpoint
+→ database initialization
+→ session initialization
+→ websocket/socket.io initialization
+→ app.listen()
+
+Verify that the server actually starts and immediately responds with HTTP 200.
+
+Make these changes if required:
+
+1. Ensure the server NEVER throws because of missing PORT.
+Use:
+const port = Number(process.env.PORT ?? 3001);
+
+2. Add a root endpoint:
+GET /
+returns HTTP 200 with "OK"
+
+3. Add a production health endpoint:
+GET /healthz
+returns:
+{
+  "status":"ok"
+}
+
+4. Ensure no startup task blocks app.listen().
+Move database/socket initialization after listen() if necessary or make it lazy.
+
+5. Catch every startup exception and print the full stack trace.
+
+6. Run the production server exactly the same way Replit deployment runs it.
+
+Do NOT run local development mode.
+
+Start the production server and verify:
+
+- process starts
+- app.listen executes
+- GET / returns 200
+- GET /healthz returns 200
+
+If any startup exception occurs, fix the ROOT CAUSE.
+
+Do NOT modify unrelated code.
+Do NOT modify UI.
+Do NOT modify game logic.
+
+Commit all fixes.
+
+ONLY after verifying successful production startup,
+trigger ONE Republish automatically.
+
+If publishing still fails,
+retrieve the ACTUAL runtime logs from the latest deployment and continue debugging automatically.
+
+Do not stop until either:
+1. the app is live, OR
+2. you have the exact runtime exception from the latest deployment.
+
+Do not ask me to click Publish again until this process is complete.
