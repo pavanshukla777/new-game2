@@ -8,7 +8,7 @@ id = "3B4_FFSkEVBkAeYMFRJ2e"
 localPort = 3001
 name = "API Server"
 paths = ["/api"]
-deploymentTarget = "vm"
+deploymentTarget = "autoscale"
 
 [services.development]
 run = "pnpm --filter @workspace/api-server run dev"
@@ -31,4 +31,5 @@ PORT = "3001"
 NODE_ENV = "production"
 
 [services.production.health.startup]
-path = "/api/healthz/healthz"
+# Replit probes the first path in [[services]].paths — use /api directly
+path = "/api"
