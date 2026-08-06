@@ -3,16 +3,26 @@ import app from "./app";
 import { initSocketIO } from "./socket/index";
 import { logger } from "./lib/logger";
 
+// Catch every unhandled exception so the full stack trace is visible in logs
+process.on("uncaughtException", (err) => {
+  logger.error({ err }, "Uncaught exception — shutting down");
+  process.exit(1);
+});
+process.on("unhandledRejection", (reason) => {
+  logger.error({ reason }, "Unhandled promise rejection — shutting down");
+  process.exit(1);
+});
+
 const port = Number(process.env.PORT ?? 3001);
 
-// Create a plain HTTP server so both Express and Socket.IO share the same port
 const httpServer = createServer(app);
 
-// Attach Socket.IO (/lobby and /game namespaces)
-initSocketIO(httpServer);
-
+// Start listening first so the startup probe can get a 200 immediately
 httpServer.listen(port, () => {
   logger.info({ port }, "Bundelkhandi Chhakri API server listening");
+
+  // Attach Socket.IO after listen so the HTTP server is already bound
+  initSocketIO(httpServer);
   logger.info("Socket.IO ready on /lobby and /game namespaces");
 });
 
