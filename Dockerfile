@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN npm install -g pnpm@9.15.9
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.base.json ./
 
 COPY artifacts ./artifacts
 COPY lib ./lib
@@ -15,6 +15,7 @@ RUN pnpm install --no-frozen-lockfile
 RUN pnpm --filter @workspace/api-server build
 
 ENV NODE_ENV=production
+ENV BASE_PATH=/
 
 EXPOSE 3000
 
