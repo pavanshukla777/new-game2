@@ -1,0 +1,54 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - github-main
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install Android SDK / NDK
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973"
+
+      - name: Flutter version
+        working-directory: flutter_client
+        run: flutter --version
+
+      - name: Flutter pub get
+        working-directory: flutter_client
+        run: flutter pub get
+
+      - name: Build release APK
+        working-directory: flutter_client
+        run: |
+          flutter build apk --release \
+            --dart-define=API_BASE_URL=https://workspacesapi-server-production-6af2.up.railway.app \
+            --dart-define=WS_BASE_URL=https://workspacesapi-server-production-6af2.up.railway.app
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: chhakri-release-apk
+          path: flutter_client/build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
