@@ -1,16 +1,15 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
     namespace = "com.chhakri.game"
+
     compileSdk = flutter.compileSdkVersion
     buildToolsVersion = "35.0.0"
     ndkVersion = "27.0.12077973"
-    ndkPath = "/home/runner/workspace/android-ndk/android-ndk-r27"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -31,13 +30,13 @@ android {
 
     buildTypes {
         release {
+            // Temporary testing build.
+            // Play Store signing will be configured after gameplay testing.
             signingConfig = signingConfigs.getByName("debug")
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+
+            // Keep release APK simple and reliable for first real-device testing.
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
 }
