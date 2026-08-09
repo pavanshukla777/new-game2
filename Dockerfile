@@ -11,7 +11,7 @@ COPY lib ./lib
 COPY scripts ./scripts
 
 RUN pnpm install --no-frozen-lockfile
-
+RUN pnpm --filter @workspace/web build
 RUN pnpm --filter @workspace/api-server build
 
 ENV NODE_ENV=production
