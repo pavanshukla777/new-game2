@@ -10,7 +10,7 @@ COPY artifacts ./artifacts
 COPY lib ./lib
 COPY scripts ./scripts
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --no-frozen-lockfile
 
 RUN pnpm --filter @workspace/api-server build
 
