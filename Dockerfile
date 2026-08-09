@@ -11,12 +11,12 @@ COPY lib ./lib
 COPY scripts ./scripts
 
 RUN pnpm install --no-frozen-lockfile
+
 RUN pnpm --filter @workspace/web build
-RUN pnpm --filter @workspace/api-server build
 
 ENV NODE_ENV=production
 ENV BASE_PATH=/
 
 EXPOSE 3000
 
-CMD ["pnpm", "--filter", "@workspace/api-server", "start"]
+CMD ["pnpm", "--filter", "@workspace/web", "serve"]
