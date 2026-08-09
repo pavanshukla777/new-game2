@@ -27,7 +27,7 @@ function useServerHealth() {
     queryFn: async () => {
       const base = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
-      const res = await fetch(`${base}/api/healthz`);
+      const res = await fetch(`${base}/healthz`);
 
       if (!res.ok) {
         throw new Error('unhealthy');
