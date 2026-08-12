@@ -1,8 +1,7 @@
 /// LoginScreen — email + password login with guest login shortcut.
 ///
-/// On success: GoRouter redirect takes the user to /lobby automatically
-/// (auth state change triggers RouterNotifier → GoRouter re-evaluates).
-/// On failure: inline error banner with a friendly message.
+/// After successful authentication, navigation to /lobby is performed
+/// explicitly instead of relying only on GoRouter's auth refresh listener.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,6 +34,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   Future<void> _submit() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
+
     setState(() {
       _isSubmitting = true;
       _errorMessage = null;
@@ -46,14 +46,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         );
 
     if (!mounted) return;
+
     if (error != null) {
       setState(() {
         _isSubmitting = false;
         _errorMessage = _friendlyError(error);
       });
+      return;
     }
-    // On success: auth state changes → RouterNotifier fires → GoRouter
-    // redirects to /lobby automatically; no manual navigation needed.
+
+    // Login successful.
+    // Navigate explicitly instead of relying only on router refresh.
+    context.go('/lobby');
   }
 
   Future<void> _guestLogin() async {
@@ -61,14 +65,22 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       _isSubmitting = true;
       _errorMessage = null;
     });
+
     final error = await ref.read(authProvider.notifier).loginAsGuest();
+
     if (!mounted) return;
+
     if (error != null) {
       setState(() {
         _isSubmitting = false;
         _errorMessage = _friendlyError(error);
       });
+      return;
     }
+
+    // Guest login successful.
+    // Navigate explicitly to lobby.
+    context.go('/lobby');
   }
 
   String _friendlyError(String code) {
@@ -89,8 +101,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 32,
+              vertical: 24,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 420),
               child: Form(
@@ -98,7 +112,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // ── Title ────────────────────────────────────────────
                     const Text(
                       'छक्री',
                       textAlign: TextAlign.center,
@@ -109,7 +122,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         letterSpacing: 4,
                       ),
                     ),
+
                     const SizedBox(height: 8),
+
                     const Text(
                       'Sign in to play',
                       textAlign: TextAlign.center,
@@ -119,15 +134,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         letterSpacing: 1,
                       ),
                     ),
+
                     const SizedBox(height: 40),
 
-                    // ── Error banner ─────────────────────────────────────
                     if (_errorMessage != null) ...[
-                      AuthErrorBanner(message: _errorMessage!),
+                      AuthErrorBanner(
+                        message: _errorMessage!,
+                      ),
                       const SizedBox(height: 20),
                     ],
 
-                    // ── Email ────────────────────────────────────────────
                     AuthField(
                       controller: _emailController,
                       label: 'Email',
@@ -140,9 +156,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         return null;
                       },
                     ),
+
                     const SizedBox(height: 16),
 
-                    // ── Password ─────────────────────────────────────────
                     AuthField(
                       controller: _passwordController,
                       label: 'Password',
@@ -156,9 +172,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           color: Colors.white38,
                           size: 20,
                         ),
-                        onPressed: () => setState(
-                          () => _obscurePassword = !_obscurePassword,
-                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
                       ),
                       validator: (v) {
                         if (v == null || v.isEmpty) {
@@ -167,17 +185,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         return null;
                       },
                     ),
+
                     const SizedBox(height: 28),
 
-                    // ── Login button ─────────────────────────────────────
                     AuthPrimaryButton(
                       label: 'Sign In',
                       isLoading: _isSubmitting,
                       onPressed: _isSubmitting ? null : _submit,
                     ),
+
                     const SizedBox(height: 12),
 
-                    // ── Register link ────────────────────────────────────
                     TextButton(
                       onPressed: _isSubmitting
                           ? null
@@ -191,13 +209,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       ),
                     ),
 
-                    // ── Divider ──────────────────────────────────────────
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       child: AuthDivider(),
                     ),
 
-                    // ── Guest login ──────────────────────────────────────
                     OutlinedButton(
                       onPressed: _isSubmitting ? null : _guestLogin,
                       style: OutlinedButton.styleFrom(
@@ -206,8 +222,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           color: Colors.white24,
                           width: 0.8,
                         ),
-                        padding:
-                            const EdgeInsets.symmetric(vertical: 14),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 14,
+                        ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
